@@ -1,22 +1,26 @@
+-----------------------
 <img src=".art/banners/RetroClock_Banner.png" title="Retro Clock Title Banner" width="75%"/>
 
-####Turn your Ubuntu Touch device into a retro clock with a large collection of cold war era display technologies.
+#### Turn your Ubuntu Touch device into a retro clock with a large collection of cold war era display technologies.
 
 ## License
 ----------
 The code in this repository is under the [Simplified BSD license](https://opensource.org/licenses/BSD-2-Clause)
 
-All of the custom artwork will be in a seperate repositoriy under a [non-commercial license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+All of the custom artwork will be in a seperate repository under a [non-commercial license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## Credits
 ----------
 The code is based on Night Clock by [Michal Predotka](https://open-store.io/app/nightclock.mivoligo).
 
-All reference photos used to make the displays are used under fair use and are highly transformed from the originals.
-I have spent countless hours dissecting the images into individual parts, scaling, tweaking the colors and deforming them to produce perfectly aligned configurable images.
-Many of the displays are based on a single image as they are rare or even one of one. None of the reference pictures are used in their original form.
+All reference photos used to make the displays are used under fair use 
+and are highly transformed from the originals. I have spent countless 
+hours dissecting the images into individual parts, scaling, tweaking the 
+colors and deforming them to produce perfectly aligned configurable images.
+Many of the displays are based on a single image as they are rare or 
+even one of one. None of the reference pictures are used in their original form.
 
-Reference photos found on these wonderful collectors sites and forums
+Reference photos were found on these wonderful collectors sites and forums:
 
 * [SwissNixie](https://www.swissnixie.com)
 * [DecadeCounter](http://www.decadecounter.com/vta/)
@@ -27,17 +31,25 @@ Reference photos found on these wonderful collectors sites and forums
 * [Nixies.us](https://www.nixies.us)
 * [TubeTime](http://tubetime.us)
 
-If you think I have used your reference photos during the creation of my work and I have not included your site please open an issue and let me know so I can add it.
-Some reference photos where found on social media posts without referel to their origin.
+If you think I have used your reference photos during the creation of my 
+work and I have not included your site please open an issue and let me 
+know so I can add it. Some reference photos where found on social media 
+posts without referel to their origin.
 
 ## Notes
 --------
 Possible future changes
 
+* Slot machine and shuffle transitions like used on real nixie clocks.
+* Display date in numerical format using smaller versions of the display choosen.
+* Hue/Saturation wheel or panel instead of Hue and Saturation sliders for custom colors.
 * Make analog clock and date/alarms display side by side in landscape.
-* Option to force landscape mode while the phone is in portrait.
-* Hue slider in place of preset color circles.
-* Hue wheel or panel with value slider instead RGB page for custom colors.
+* Backgrounds and overlays to complete the look of real world clocks.
+* Use as lock screen.
+* Use on/as wallpaper.
+* Timer and stopwatch mode.
+* Option to force landscape mode while the phone is in portrait. (Does not look to be possible with a setting only in the .desktop file)
+
 
 The program could be optimized and cleaned up but I have very little 
 experience with declarative or object oriented programming and before this 
@@ -61,19 +73,20 @@ Most of the L.E.D. displays are from the very early days of L.E.Ds and
 are not the most useful but none the less interesting.
 
 The decade counter clocks are for the tube clock lovers amung you not 
-becasue they are good clocks.
+because they are good clocks.
 
 ## Options
 ----------
-
 There are 6 fully customizable presets that can have all their parameters 
 changed individually except the time/date formats and fullscreen which 
 are global.
 
 * Select Display type
 * Adjust Hue of "Tube Clocks"
-* Set Background Color
-* Set Foreground Color of Text, Analog Clocks and L.E.D. displays
+* Set Background Color (HSV or RGB)
+* Set Foreground Color of Text, Analog Clocks and L.E.D. displays (HSV or RGB)
+* Custom Preset names
+* HSV or RGB color selection
 * Show Seconds
     * Blink colons (with show seconds)
 * Show Date
@@ -86,7 +99,7 @@ are global.
     * 24hr with leading zero
     * 24hr without leading zero
 * Date Format
-    * 9 standard options
+    * 9 standard formats
 * Fullscreen or Windowed
 
 ## Displays
@@ -109,9 +122,10 @@ are global.
     * 5 types of clocks. (same faces as oscilloscope) (Color matches Text color)
 
 ------------------------
+https://github.com/Intrinsically-Sublime/retro-clock/blob/main/
 
-### All pictures show the colors of the actual real life displays.
-### The colors are customizable in the settings menu.
+#### All pictures show the colors of the actual real life displays.
+ The colors are customizable in the settings menu.
 
 ### B7971 15 Segment Nixie Tubes
 <img src=".art/banners/b7971.png" title="B7971 clock with leading zero and seconds displayed clock with leading zero and seconds displayed" width="50%"/>
@@ -195,6 +209,7 @@ are global.
 <img alt="vfd48" src=".art/banners/vfd48.png" title="VFD48 clock with seconds displayed" width="50%"/>
 
 ### Custom Oscilloscope and Floating Analog Clock Faces
+
 #### Type A
 <img alt="analog faces A" src=".art/banners/analoga.png" title="Analog Face A clock with seconds displayed" width="50%"/>
 

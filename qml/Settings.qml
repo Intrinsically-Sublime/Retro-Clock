@@ -22,11 +22,11 @@ Page {
         StyleHints {
             backgroundColor: back_color
         }
+        
         extension: Sections {
             id: header_sections
             StyleHints {
                 selectedSectionColor: "#e8ae0e"
-//                selectedSectionColor: isDayMode ? "#0a2449" : "#e8ae0e"
                 sectionColor:"#f7f7f7"
             }
             anchors {
@@ -36,7 +36,48 @@ Page {
             }
             model: [i18n.tr("Appearance"), i18n.tr("Advanced"), i18n.tr("Time & Date Format")]
         }
+              
+        trailingActionBar {
+            actions: [
+                Action {
+                    iconSource: "../img/" + presetTheme[0][0] + "icon.png"
+                    text: i18n.tr(presetTheme[0][2])
 
+                    onTriggered: loadPreset(0, false)
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[1][0] + "icon.png"
+                    text: i18n.tr(presetTheme[1][2])
+
+                    onTriggered: loadPreset(1, false)
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[2][0] + "icon.png"
+                    text: i18n.tr(presetTheme[2][2])
+
+                    onTriggered: loadPreset(2, false)
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[3][0] + "icon.png"
+                    text: i18n.tr(presetTheme[3][2])
+
+                    onTriggered: loadPreset(3, false)
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[4][0] + "icon.png"
+                    text: i18n.tr(presetTheme[4][2])
+
+                    onTriggered: loadPreset(4, false)
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[5][0] + "icon.png"
+                    text: i18n.tr(presetTheme[5][2])
+
+                    onTriggered: loadPreset(5)
+                }
+            ]
+            numberOfSlots: 1
+        }
     }
 
     Flow {
@@ -594,6 +635,32 @@ Page {
                             md_switch.checked = !md_switch.checked
                         }
                     }
+                    
+                    ListItem {
+                        id: show_rgb_setting_item
+
+                        visible: header_sections.selectedIndex === 1
+
+                        height: rgb_layout.height * 3 / 4
+                        divider.visible: false
+                        ListItemLayout {
+                            id: rgb_layout
+
+                            title.text: i18n.tr("RGB color selectors")
+
+                            Switch {
+                                id: rgb_switch
+
+                                checked: rgbSliders
+                                onCheckedChanged: rgbSliders = checked
+                                SlotsLayout.overrideVerticalPositioning : true
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                        }
+                        onClicked: {
+                            rgb_switch.checked = !rgb_switch.checked
+                        }
+                    }
 
                     ListItem {
                         id: display_alarms_setting_item
@@ -772,8 +839,7 @@ Page {
                                                 anchors.fill: parent
                                                 onClicked: {
                                                     selected_theme = modelData
-                                                    modelData.slice(0,6) == "analog" ? isAnalog = true : isAnalog = false
-                                                    isAnalog ? updateTimeAnalog() : updateTime
+                                                    setDisplayType()
                                                     presetTheme[currentPreset][0] = selected_theme
                                                 }
                                             }
@@ -837,8 +903,7 @@ Page {
                                                 anchors.fill: parent
                                                 onClicked: {
                                                     selected_theme = modelData
-                                                    modelData.slice(0,6) == "analog" ? isAnalog = true : isAnalog = false
-                                                    isAnalog ? updateTimeAnalog() : updateTime
+                                                    setDisplayType()
                                                     presetTheme[currentPreset][0] = selected_theme
                                                 }
                                             }
@@ -944,8 +1009,7 @@ Page {
                                                 anchors.fill: parent
                                                 onClicked: {
                                                     selected_theme = modelData
-                                                    modelData.slice(0,6) == "analog" ? isAnalog = true : isAnalog = false
-                                                    isAnalog ? updateTimeAnalog() : updateTime
+                                                    setDisplayType()
                                                     presetTheme[currentPreset][0] = selected_theme
                                                 }
                                             }
@@ -1013,8 +1077,7 @@ Page {
                                                 anchors.fill: parent
                                                 onClicked: {
                                                     selected_theme = modelData
-                                                    modelData.slice(0,6) == "analog" ? isAnalog = true : isAnalog = false
-                                                    isAnalog ? updateTimeAnalog() : updateTime
+                                                    setDisplayType()
                                                     presetTheme[currentPreset][0] = selected_theme
                                                 }
                                             }
@@ -1053,10 +1116,219 @@ Page {
                             osc_switch.checked = !osc_switch.checked
                         }
                     }
+                                      
+                    ListItem {
+                        id: text_color_setting_slider
+                        visible: !rgbSliders && header_sections.selectedIndex === 0
+                        divider.visible: false
+                                height: units.gu(8)
+
+                        Column {
+                            id: text_color_slider_column
+                            anchors {
+                                left: parent.left
+                                leftMargin: units.gu(2)
+                                right: parent.right
+                                rightMargin: units.gu(2)
+                            }
+
+                            Label {
+                                text: i18n.tr("Foreground colour")
+                            }
+
+                            Row {
+                                width: parent.width
+                                anchors.right: parent.right
+                                anchors.left: parent.left
+
+                                Item {
+                                    id: custom_text_color_slider_rect
+
+                                    width: units.gu(3)
+                                    height: units.gu(4)
+
+                                    Icon {
+                                        name: "edit"
+                                        width: units.gu(3)
+                                        height: width
+                                        anchors.left: parent.left
+                                        anchors.bottom: parent.bottom
+                                    }
+
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: {
+                                            color_edited = "text_color"
+                                            page_stack.push(Qt.resolvedUrl("CustomColor.qml"))
+                                        }
+                                    }
+                                }
+
+                                ListItemLayout {
+                                    Slider {
+                                        id: slider_text_h
+                                        
+                                        SlotsLayout.position: SlotsLayout.Trailing
+                                        anchors.right: parent.right
+                                        anchors.leftMargin: units.gu(2)
+                                        anchors.rightMargin: units.gu(3)
+                                        
+                                        Image {
+                                            id: text_hue_background
+                                            
+                                            height: units.gu(3.5)
+                                            z: -1
+                                            source: "../img/bars/text_color_bar.png"
+                                            fillMode: Image.Stretch
+                                            anchors.right: parent.right
+                                            anchors.left: parent.left
+                                        }
+
+                                        live: true
+                                        minimumValue: -0.2
+                                        maximumValue: 1
+                                        
+                                        function formatValue(v) { 
+                                            if ((v*100) <= 0) {
+                                                return (v * 1280).toFixed(0)
+                                            } else {
+                                                return (v * 360).toFixed(0)
+                                            }
+                                        }
+                                        
+                                        // Causes binding loop but I could not figure out how to bind 
+                                        // it to two different settings for the dual use slider using onCompleted.
+                                        value: 
+                                        if ( text_color.hsvSaturation == 0 ) {
+                                            !slider_text_h.pressed ? (((1-text_color.hsvValue)*-1)/5) : ""
+                                        } else {
+                                            !slider_text_h.pressed ? text_color.hsvHue : ""
+                                        }
+                                        
+                                        onValueChanged: {
+                                            if ((slider_text_h.value*1000) < 1) {
+                                                text_color = Qt.hsva(1, 0, 1-((slider_text_h.value*-1)*5), 1)
+                                            } else if (text_color.hsvSaturation == 0) {
+                                                text_color = Qt.hsva(slider_text_h.value, 1, 1, 1)
+                                            } else {
+                                                text_color = Qt.hsva(slider_text_h.value, text_color.hsvSaturation, text_color.hsvValue, 1)
+                                            }
+                                            savePresetTextColor(text_color)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    ListItem {
+                        id: back_color_setting_slider
+                        visible: !rgbSliders && header_sections.selectedIndex === 0
+                        divider.visible: true
+                                height: units.gu(8)
+
+                        Column {
+                            id: back_color_slider_column
+                            anchors {
+                                left: parent.left
+                                leftMargin: units.gu(2)
+                                right: parent.right
+                                rightMargin: units.gu(2)
+                            }
+
+                            Label {
+                                text: i18n.tr("background colour")
+                            }
+
+                            Row {
+                                width: parent.width
+                                anchors.right: parent.right
+                                anchors.left: parent.left
+
+                                Item {
+                                    id: custom_back_color_slider_rect
+
+                                    width: units.gu(3)
+                                    height: units.gu(4)
+
+                                    Icon {
+                                        name: "edit"
+                                        width: units.gu(3)
+                                        height: width
+                                        anchors.left: parent.left
+                                        anchors.bottom: parent.bottom
+                                    }
+
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: {
+                                            color_edited = "back_color"
+                                            page_stack.push(Qt.resolvedUrl("CustomColor.qml"))
+                                        }
+                                    }
+                                }
+
+                                ListItemLayout {
+                                    Slider {
+                                        id: slider_back_h
+                                        
+                                        SlotsLayout.position: SlotsLayout.Trailing
+                                        anchors.right: parent.right
+                                        anchors.leftMargin: units.gu(2)
+                                        anchors.rightMargin: units.gu(3)
+                                        
+                                        Image {
+                                            id: back_hue_background
+                                            
+                                            height: units.gu(3.5)
+                                            z: -1
+                                            source: "../img/bars/back_color_bar.png"
+                                            fillMode: Image.Stretch
+//                                            anchors.verticalCenter: parent.verticalCenter
+                                            anchors.right: parent.right
+                                            anchors.left: parent.left
+                                        }
+
+                                        live: true
+                                        minimumValue: -1
+                                        maximumValue: 1
+                                        
+                                        function formatValue(v) { 
+                                            if ((v*100) <= 0) {
+                                                return (v * 256).toFixed(0)
+                                            } else {
+                                                return (v * 360).toFixed(0)
+                                            }
+                                        }
+                                        
+                                        // Causes binding loop but I could not figure out how to bind 
+                                        // it to two different settings for the dual use slider using onCompleted.
+                                        value: if ( back_color.hsvSaturation == 0 ) {
+                                            !slider_back_h.pressed ? ((1-back_color.hsvValue)*-1) : ""
+                                        } else {
+                                            !slider_back_h.pressed ? back_color.hsvHue : ""
+                                        }
+                                        
+                                        onValueChanged: {
+                                            if ((slider_back_h.value*1000) < 1) {
+                                                back_color = Qt.hsva(1, 0, 1-(slider_back_h.value*-1), 1)
+                                            } else if (back_color.hsvSaturation == 0) {
+                                                back_color = Qt.hsva(slider_back_h.value, 0.5, 0.35, 1)
+                                            } else {
+                                                back_color = Qt.hsva(slider_back_h.value, back_color.hsvSaturation, back_color.hsvValue, 1)
+                                            }
+                                            savePresetBackColor(back_color)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                     
                     ListItem {
                         id: text_color_setting_item
-                        visible: header_sections.selectedIndex === 0
+                        visible: rgbSliders && header_sections.selectedIndex === 0
                         divider.visible: false
 
                         Column {
@@ -1136,7 +1408,7 @@ Page {
 
                     ListItem {
                         id: background_color_setting_item
-                        visible: header_sections.selectedIndex === 0
+                        visible: rgbSliders && header_sections.selectedIndex === 0
                         divider.visible: false
                         Column {
                             id: back_color_column

@@ -15,7 +15,6 @@ Page {
             id: header_sections
             StyleHints {
                 selectedSectionColor: "#e8ae0e"
-//                selectedSectionColor: isDayMode ? "#0a2449" : "#e8ae0e"
                 sectionColor:"#f7f7f7"
             }
             anchors {
@@ -106,7 +105,19 @@ Page {
             ListItem {
                 visible: header_sections.selectedIndex === 0
                 ListItemLayout {
-                    title.text: i18n.tr("License")
+                    title.text: i18n.tr("Artwork License")
+
+                    Label { text: "Creative Commons BY-NC-SA 4.0" }
+
+                    ProgressionSlot {}
+                }
+                onClicked: {Qt.openUrlExternally('https://creativecommons.org/licenses/by-nc-sa/4.0/')}
+            }
+
+            ListItem {
+                visible: header_sections.selectedIndex === 0
+                ListItemLayout {
+                    title.text: i18n.tr("Software License")
 
                     Label { text: "Simplified BSD License" }
 
@@ -118,19 +129,19 @@ Page {
             ListItem {
                 visible: header_sections.selectedIndex === 1
                 ListItemLayout {
-                    title.text: i18n.tr("Author")
+                    title.text: i18n.tr("Retro-Clock Author & Artist")
 
                     Label { text: "Intrinsically-Sublime" }
 
                     ProgressionSlot {}
                 }
-                onClicked: {Qt.openUrlExternally('')}
+                onClicked: {Qt.openUrlExternally('https://github.com/Intrinsically-Sublime')}
             }
 
             ListItem {
                 visible: header_sections.selectedIndex === 1
                 ListItemLayout {
-                    title.text: i18n.tr("Original Author")
+                    title.text: i18n.tr("Original Night-Clock Author")
 
                     Label { text: "Michał Prędotka" }
 

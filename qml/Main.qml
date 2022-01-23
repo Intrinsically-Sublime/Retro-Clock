@@ -8,10 +8,11 @@ import QtQuick.Window 2.2
 Window {
     id: root_window
 
-    property bool isAnalog: selected_theme.slice(0,6) == "analog" ? true : false
-    property bool isLed: selected_theme.slice(0,4) == "leds" ? true : false
-    property bool isDigtal: selected_theme.slice(0,7) == "digital" ? true : false
+    property bool isAnalog: false
+    property bool isLed: false
+    property bool isDigtal: false
     property bool isFullscreen: true
+    property bool rgbSliders: false
     property bool isLandscape: main_view.width > main_view.height
     property string time_24: "000000"
     property string time_12: "000000ap"
@@ -49,11 +50,11 @@ Window {
     property color text_color: getPresetTextColor(currentPreset)
 
     // Hack to save colors as they can not be saved in the array
-    property color pre_b_color_0: "#000000"
+    property color pre_b_color_0: "#0b0b0b"
     property color pre_b_color_1: "#000000"
-    property color pre_b_color_2: "#000000"
+    property color pre_b_color_2: "#5b4c39"
     property color pre_b_color_3: "#000000"
-    property color pre_b_color_4: "#000000"
+    property color pre_b_color_4: "#171717"
     property color pre_b_color_5: "#000000"
     // Hack to save colors as they can not be saved in the array
     property color pre_t_color_0: "#ffaa19"
@@ -67,24 +68,12 @@ Window {
     {
         switch(currentPreset)
         {
-        case 0:
-            pre_t_color_0 = newColor
-        break;
-        case 1:
-            pre_t_color_1 = newColor
-        break;
-        case 2:
-            pre_t_color_2 = newColor
-        break;
-        case 3:
-            pre_t_color_3 = newColor
-        break;
-        case 4:
-            pre_t_color_4 = newColor
-        break;
-        case 5:
-            pre_t_color_5 = newColor
-        break;
+        case 0: pre_t_color_0 = newColor ; break
+        case 1: pre_t_color_1 = newColor ; break
+        case 2: pre_t_color_2 = newColor ; break
+        case 3: pre_t_color_3 = newColor ; break
+        case 4: pre_t_color_4 = newColor ; break
+        case 5: pre_t_color_5 = newColor ; break
         }
     }
     // Hack to save the background colors to match the preset array
@@ -92,24 +81,12 @@ Window {
     {
         switch(currentPreset)
         {
-        case 0:
-            pre_b_color_0 = newColor
-        break;
-        case 1:
-            pre_b_color_1 = newColor
-        break;
-        case 2:
-            pre_b_color_2 = newColor
-        break;
-        case 3:
-            pre_b_color_3 = newColor
-        break;
-        case 4:
-            pre_b_color_4 = newColor
-        break;
-        case 5:
-            pre_b_color_5 = newColor
-        break;
+        case 0: pre_b_color_0 = newColor ; break
+        case 1: pre_b_color_1 = newColor ; break
+        case 2: pre_b_color_2 = newColor ; break
+        case 3: pre_b_color_3 = newColor ; break
+        case 4: pre_b_color_4 = newColor ; break
+        case 5: pre_b_color_5 = newColor ; break
         }
     }
     // Hack to get the background colors that match the preset array
@@ -117,24 +94,12 @@ Window {
     {
         switch(preset)
         {
-        case 0:
-            return pre_b_color_0
-        break;
-        case 1:
-            return pre_b_color_1
-        break;
-        case 2:
-            return pre_b_color_2
-        break;
-        case 3:
-            return pre_b_color_3
-        break;
-        case 4:
-            return pre_b_color_4
-        break;
-        case 5:
-            return pre_b_color_5
-        break;
+        case 0: return pre_b_color_0 ; break
+        case 1: return pre_b_color_1 ; break
+        case 2: return pre_b_color_2 ; break
+        case 3: return pre_b_color_3 ; break
+        case 4: return pre_b_color_4 ; break
+        case 5: return pre_b_color_5 ; break
         }
     }
     // Hack to get the text colors that match the preset array
@@ -142,28 +107,39 @@ Window {
     {
         switch(preset)
         {
-        case 0:
-            return pre_t_color_0
-        break;
-        case 1:
-            return pre_t_color_1
-        break;
-        case 2:
-            return pre_t_color_2
-        break;
-        case 3:
-            return pre_t_color_3
-        break;
-        case 4:
-            return pre_t_color_4
-        break;
-        case 5:
-            return pre_t_color_5
-        break;
+        case 0: return pre_t_color_0 ; break
+        case 1: return pre_t_color_1 ; break
+        case 2: return pre_t_color_2 ; break
+        case 3: return pre_t_color_3 ; break
+        case 4: return pre_t_color_4 ; break
+        case 5: return pre_t_color_5 ; break
         }
     }
     
-    function loadPreset(selection)
+    function setDisplayType()
+    {
+        if (selected_theme.slice(0,6) == "analog") {
+            isAnalog = true
+            isLed = false
+            isDigtal = false
+            updateTimeAnalog()
+        }
+        else if (selected_theme.slice(0,4) == "leds") {
+            isAnalog = false
+            isLed = true
+            isDigtal = false
+            updateTime()
+        }
+        else if (selected_theme.slice(0,7) == "digital" ||
+                    selected_theme.slice(0,5) == "other") { 
+            isAnalog = false
+            isLed = false
+            isDigtal = true
+            updateTime()
+        }
+    }
+
+    function loadPreset(selection, mainPage)
     {
         currentPreset = selection
         selected_theme = presetTheme[selection][0]
@@ -177,10 +153,20 @@ Window {
         hideOscilloscope = presetTheme[selection][8]
         back_color = getPresetBackColor(selection)
         text_color = getPresetTextColor(selection)
+        setDisplayType()
         // Not sure if this is the best way but we need to reload the page
         // if switching between presets with and without seconds displayed
-        page_stack.pop()
-        page_stack.push(Qt.resolvedUrl("Display.qml"))
+        // or between analog and digital. It also slows the transistion.
+        // I am sure it is a binding issue somewhere possibly a result of
+        // the array used for storing the presets.
+        if (mainPage) { 
+//            page_stack.pop(null, true)
+            page_stack.clear()
+            page_stack.push(Qt.resolvedUrl("Display.qml"))
+        } else {
+            page_stack.pop()
+            page_stack.push(Qt.resolvedUrl("Settings.qml"))
+        }
     }
     
     function updateTime()
@@ -206,7 +192,7 @@ Window {
     visible: true
     visibility: isFullscreen ? Window.FullScreen : Window.AutomaticVisibility
 
-    onSelected_themeChanged: selected_theme.slice(0,6) == "analog" ? updateTimeAnalog() : updateTime()
+    onSelected_themeChanged: setDisplayType()
 
     ScreenSaver {
         screenSaverEnabled: !Qt.application.active
@@ -226,6 +212,7 @@ Window {
             property alias preset_themes: root_window.presetTheme
             property alias current_preset: root_window.currentPreset
             property alias is_fullscreen: root_window.isFullscreen
+            property alias rgb_sliders: root_window.rgbSliders
             property alias current_date_format: root_window.date_format
             property alias current_time_format: root_window.time_format
             

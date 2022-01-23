@@ -16,6 +16,12 @@ Page {
         return color_edited == "text_color" ? temp_text_color = Qt.rgba(slider_r.value, slider_g.value, slider_b.value, 1)
                                             : temp_back_color = Qt.rgba(slider_r.value, slider_g.value, slider_b.value, 1)
     }
+
+    function setColorHSV()
+    {
+        return color_edited == "text_color" ? temp_text_color = Qt.hsva(slider_hue.value, slider_sat.value, slider_val.value, 1)
+                                            : temp_back_color = Qt.hsva(slider_hue.value, slider_sat.value, slider_val.value, 1)
+    }
     
     header: PageHeader {
         id: main_header
@@ -53,11 +59,17 @@ Page {
             slider_r.value = text_color.r
             slider_g.value = text_color.g
             slider_b.value = text_color.b
+            slider_hue.value = text_color.hsvHue
+            slider_sat.value = text_color.hsvSaturation
+            slider_val.value = text_color.hsvValue
         }
         else {
             slider_r.value = back_color.r
             slider_g.value = back_color.g
             slider_b.value = back_color.b
+            slider_hue.value = back_color.hsvHue
+            slider_sat.value = back_color.hsvSaturation
+            slider_val.value = back_color.hsvValue
         }
     }
 
@@ -452,6 +464,7 @@ Page {
                 anchors.fill: parent
 
                 SlotsLayout {
+                    visible: rgbSliders
                     mainSlot: Slider {
                         id: slider_r
 
@@ -474,6 +487,7 @@ Page {
                 }
 
                 SlotsLayout {
+                    visible: rgbSliders
                     mainSlot: Slider {
                         id: slider_g
 
@@ -496,6 +510,7 @@ Page {
                 }
 
                 SlotsLayout {
+                    visible: rgbSliders
                     mainSlot: Slider {
                         id: slider_b
 
@@ -514,6 +529,190 @@ Page {
                         SlotsLayout.position: SlotsLayout.Leading
                         SlotsLayout.overrideVerticalPositioning : true
                         anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+                                  
+                ListItem {
+                    visible: !rgbSliders
+                    id: hue_setting_item
+                    divider.visible: false
+                    height: units.gu(8)
+
+                    Column {
+                        id: hue_column
+                        anchors {
+                            left: parent.left
+                            leftMargin: units.gu(2)
+                            right: parent.right
+                            rightMargin: units.gu(2)
+                        }
+
+                        Label {
+                            text: i18n.tr("Hue")
+                        }
+
+                        Row {
+                            width: parent.width
+                            anchors.right: parent.right
+                            anchors.left: parent.left
+
+                            ListItemLayout {
+                                Slider {
+                                    id: slider_hue
+                                    
+                                    SlotsLayout.position: SlotsLayout.Trailing
+                                    anchors.right: parent.right
+                                    anchors.leftMargin: units.gu(2)
+//                                    anchors.rightMargin: units.gu(2)
+                                    
+                                    Image {
+                                        id: hue_background
+                                        
+                                        height: units.gu(3.5)
+                                        z: -1
+                                        source: "../img/bars/hue_bar.png"
+                                        fillMode: Image.Stretch
+                                        anchors.right: parent.right
+                                        anchors.left: parent.left
+                                    }
+
+                                    live: true
+                                    minimumValue: 0
+                                    maximumValue: 1
+                                    
+                                    function formatValue(v) { return (v * 360).toFixed(0) }
+                                    
+                                    onValueChanged: {
+                                        setColorHSV()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                                  
+                ListItem {
+                    visible: !rgbSliders
+                    id: saturation_setting_item
+                    divider.visible: false
+                            height: units.gu(8)
+
+                    Column {
+                        id: saturation_column
+                        anchors {
+                            left: parent.left
+                            leftMargin: units.gu(2)
+                            right: parent.right
+                            rightMargin: units.gu(2)
+                        }
+
+                        Label {
+                            text: i18n.tr("Saturation")
+                        }
+
+                        Row {
+                            width: parent.width
+                            anchors.right: parent.right
+                            anchors.left: parent.left
+
+                            ListItemLayout {
+                                Slider {
+                                    id: slider_sat
+                                    
+                                    SlotsLayout.position: SlotsLayout.Trailing
+                                    anchors.right: parent.right
+                                    anchors.leftMargin: units.gu(2)
+//                                    anchors.rightMargin: units.gu(2)
+                                    
+                                    Image {
+                                        id: sat_background
+                                        
+                                        height: units.gu(3.5)
+                                        z: -1
+                                        source: "../img/bars/saturation_bar.png"
+                                        fillMode: Image.Stretch
+                                        anchors.right: parent.right
+                                        anchors.left: parent.left
+                                    }
+
+                                    HueSaturation {
+                                        z: -1
+                                        anchors.fill: sat_background
+                                        source: sat_background
+                                        hue: slider_hue.value
+                                    }
+
+                                    live: true
+                                    minimumValue: 0
+                                    maximumValue: 1
+                                    
+                                    function formatValue(v) { return (v * 256).toFixed(0) }
+                                    
+                                    onValueChanged: {
+                                        setColorHSV()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                                  
+                ListItem {
+                    visible: !rgbSliders
+                    id: value_setting_item
+                    divider.visible: false
+                            height: units.gu(8)
+
+                    Column {
+                        id: value_column
+                        anchors {
+                            left: parent.left
+                            leftMargin: units.gu(2)
+                            right: parent.right
+                            rightMargin: units.gu(2)
+                        }
+
+                        Label {
+                            text: i18n.tr("Value")
+                        }
+
+                        Row {
+                            width: parent.width
+                            anchors.right: parent.right
+                            anchors.left: parent.left
+
+                            ListItemLayout {
+                                Slider {
+                                    id: slider_val
+                                    
+                                    SlotsLayout.position: SlotsLayout.Trailing
+                                    anchors.right: parent.right
+                                    anchors.leftMargin: units.gu(2)
+//                                    anchors.rightMargin: units.gu(2)
+                                    
+                                    Image {
+                                        id: value_background
+                                        
+                                        height: units.gu(3.5)
+                                        z: -1
+                                        source: "../img/bars/value_bar.png"
+                                        fillMode: Image.Stretch
+                                        anchors.right: parent.right
+                                        anchors.left: parent.left
+                                    }
+
+                                    live: true
+                                    minimumValue: 0
+                                    maximumValue: 1
+                                    
+                                    function formatValue(v) { return (v * 256).toFixed(0) }
+                                    
+                                    onValueChanged: {
+                                        setColorHSV()
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -10,14 +10,14 @@ Item {
     Icon {
         id: background
 
-        source: selected_theme.slice(0,6) == "analog" && !hideOscilloscope ? "../img/" + selected_theme + "back.png" : ""
+        source: isAnalog && !hideOscilloscope ? "../img/" + selected_theme + "back.png" : ""
         width: parent.width
         height: width
     }
     Icon {
         id: face
 
-        source: selected_theme.slice(0,6) == "analog" ? "../img/" + selected_theme + "back.svg" : ""
+        source: isAnalog ? "../img/" + selected_theme + "face.svg" : ""
         width: parent.width
         height: width
         color: main_color
@@ -26,7 +26,7 @@ Item {
     Icon {
         id: hour_hand
 
-        source: selected_theme.slice(0,6) == "analog" ? "../img/" + selected_theme + "hour-hand.svg" : ""
+        source: isAnalog ? "../img/" + selected_theme + "hour-hand.svg" : ""
         width: parent.width
         height: width
         color: main_color
@@ -36,7 +36,7 @@ Item {
     Icon {
         id: min_hand
 
-        source: selected_theme.slice(0,6) == "analog" ? "../img/" + selected_theme + "min-hand.svg" : ""
+        source: isAnalog ? "../img/" + selected_theme + "min-hand.svg" : ""
         width: parent.width
         height: width
         color: main_color
@@ -47,7 +47,7 @@ Item {
         id: sec_hand
 
         visible: displaySeconds
-        source: selected_theme.slice(0,6) == "analog" ? "../img/" + selected_theme + "sec-hand.svg" : ""
+        source: isAnalog ? "../img/" + selected_theme + "sec-hand.svg" : ""
         width: parent.width
         height: width
         color: main_color
@@ -57,7 +57,7 @@ Item {
     Icon {
         id: mask
 
-        source: selected_theme.slice(0,6) == "analog" ? "../img/" + selected_theme + "mask.png" : ""
+        source: isAnalog ? "../img/" + selected_theme + "mask.png" : ""
         width: parent.width
         height: width
     }

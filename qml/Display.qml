@@ -97,7 +97,7 @@ Page {
 
                     onTriggered: {
                         main_header.exposed = false
-                        loadPreset(0)
+                        loadPreset(0, true)
                     }
                 },
                 Action {
@@ -106,7 +106,7 @@ Page {
 
                     onTriggered: {
                         main_header.exposed = false
-                        loadPreset(1)
+                        loadPreset(1, true)
                     }
                 },
                 Action {
@@ -115,7 +115,7 @@ Page {
 
                     onTriggered: {
                         main_header.exposed = false
-                        loadPreset(2)
+                        loadPreset(2, true)
                     }
                 },
                 Action {
@@ -124,7 +124,7 @@ Page {
 
                     onTriggered: {
                         main_header.exposed = false
-                        loadPreset(3)
+                        loadPreset(3, true)
                     }
                 },
                 Action {
@@ -133,7 +133,7 @@ Page {
 
                     onTriggered: {
                         main_header.exposed = false
-                        loadPreset(4)
+                        loadPreset(4, true)
                     }
                 },
                 Action {
@@ -142,7 +142,7 @@ Page {
 
                     onTriggered: {
                         main_header.exposed = false
-                        loadPreset(5)
+                        loadPreset(5, true)
                     }
                 },
                 Action {
