@@ -563,7 +563,6 @@ Page {
                                     SlotsLayout.position: SlotsLayout.Trailing
                                     anchors.right: parent.right
                                     anchors.leftMargin: units.gu(2)
-//                                    anchors.rightMargin: units.gu(2)
                                     
                                     Image {
                                         id: hue_background
@@ -622,7 +621,6 @@ Page {
                                     SlotsLayout.position: SlotsLayout.Trailing
                                     anchors.right: parent.right
                                     anchors.leftMargin: units.gu(2)
-//                                    anchors.rightMargin: units.gu(2)
                                     
                                     Image {
                                         id: sat_background
@@ -688,7 +686,6 @@ Page {
                                     SlotsLayout.position: SlotsLayout.Trailing
                                     anchors.right: parent.right
                                     anchors.leftMargin: units.gu(2)
-//                                    anchors.rightMargin: units.gu(2)
                                     
                                     Image {
                                         id: value_background

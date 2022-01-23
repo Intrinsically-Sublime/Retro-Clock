@@ -156,11 +156,13 @@ Window {
         setDisplayType()
         // Not sure if this is the best way but we need to reload the page
         // if switching between presets with and without seconds displayed
-        // or between analog and digital. It also slows the transistion.
-        // I am sure it is a binding issue somewhere possibly a result of
-        // the array used for storing the presets.
+        // or between analog and digital. Unfortunetly is slows the 
+        // transistion between digital and analog but not vise versa. I 
+        // think it is a binding issue somewhere, possibly a result of 
+        // the array used for storing the presets. Or possibly becasue the
+        // digital clock is part of the main page but the analog uses a loader.
         if (mainPage) { 
-//            page_stack.pop(null, true)
+            //page_stack.pop(null, true)
             page_stack.clear()
             page_stack.push(Qt.resolvedUrl("Display.qml"))
         } else {

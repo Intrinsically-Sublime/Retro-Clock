@@ -233,7 +233,6 @@ Item {
                 source: time_12.charAt(5) & 1 == 1 ? isAnalog ? "" : "../img/" + selected_theme + "colon.png" : isAnalog ? "" : blinkColons ? "../img/" + selected_theme + "blank_colon.png" : "../img/" + selected_theme + "colon.png"
                 width: displaySeconds ? digitWidth : 0
                 height: digitWidth * 4
-                //i & 1 == 1 ? console.log("odd") : console.log("even");
             }
 
             HueSaturation {

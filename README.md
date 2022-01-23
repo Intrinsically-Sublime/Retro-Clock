@@ -1,13 +1,17 @@
 -----------------------
 <img src=".art/banners/RetroClock_Banner.png" title="Retro Clock Title Banner" width="75%"/>
 
-#### Turn your Ubuntu Touch device into a retro clock with a large collection of cold war era display technologies.
+**Turn your Ubuntu Touch device into a retro clock with a large collection of cold war era display technologies.**
 
 ## License
 ----------
 The code in this repository is under the [Simplified BSD license](https://opensource.org/licenses/BSD-2-Clause)
 
-All of the custom artwork is in a seperate repository under an [Attribution Non-Commercial Share-Alike license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+<img src=".art/simplifiedBSD.png" title="Simplified BSD-2-Clause License" width="15%"/>
+
+All of the custom artwork is in a seperate repository under a Creative Commons [Attribution Non-Commercial Share-Alike license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+<img src=".art/ccbyncsa.svg" title="Creative Commons Attribution Non-Commercial Share-Alike License" width="15%"/>
 
 ## Credits
 ----------
@@ -50,6 +54,10 @@ Possible future changes
 * Timer and stopwatch mode.
 * Option to force landscape mode while the phone is in portrait. (Does not look to be possible with a setting only in the .desktop file)
 
+It was tested on two devices during development:
+
+* Oneplus 6T ( 64bit )
+* Oneplus One ( 32bit )
 
 The program could be optimized and cleaned up but I have very little 
 experience with declarative or object oriented programming and before this 
@@ -224,7 +232,8 @@ are global.
 #### Type E
 <img alt="analog faces E" src=".art/banners/analoge.png" title="Analog Face E clock with seconds displayed" width="50%"/>
 
-### Build from source
+### Building from source
+------------------------
 Install [Clickable](https://clickable-ut.dev/en/latest/)
 
 Download [images](https://github.com/Intrinsically-Sublime/rc-images) and place the "img" folder in the root of Retro-Clock

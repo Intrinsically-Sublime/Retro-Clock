@@ -24,7 +24,6 @@ Page {
             }
             model: [i18n.tr("Summary"), i18n.tr("Credits"), i18n.tr("Support")]
         }
-
     }
 
     Flickable {
@@ -99,7 +98,7 @@ Page {
 
                     ProgressionSlot {}
                 }
-                onClicked: {Qt.openUrlExternally('')}
+                onClicked: {Qt.openUrlExternally('https://github.com/Intrinsically-Sublime/Retro-Clock')}
             }
 
             ListItem {
@@ -141,13 +140,11 @@ Page {
             ListItem {
                 visible: header_sections.selectedIndex === 1
                 ListItemLayout {
-                    title.text: i18n.tr("Original Night-Clock Author")
-
-                    Label { text: "Michał Prędotka" }
+                    title.text: i18n.tr("Derived from Night-Clock by Michał Prędotka")
 
                     ProgressionSlot {}
                 }
-                onClicked: {Qt.openUrlExternally('http://mivoligo.com')}
+                onClicked: {Qt.openUrlExternally('https://open-store.io/app/nightclock.mivoligo')}
             }
 
             Label {
@@ -167,7 +164,7 @@ Page {
 
                     ProgressionSlot {}
                 }
-                onClicked: Qt.openUrlExternally('')
+                onClicked: Qt.openUrlExternally('https://github.com/Intrinsically-Sublime/Retro-Clock/issues')
             }
 
             ListItem {
@@ -177,18 +174,33 @@ Page {
 
                     ProgressionSlot {}
                 }
-                onClicked: Qt.openUrlExternally('')
+                onClicked: Qt.openUrlExternally('https://github.com/Intrinsically-Sublime/Retro-Clock/blob/main/po/retro-clock.intrinsically-sublime.pot')
             }
 
-            ListItem {
-                visible: header_sections.selectedIndex === 2
-                ListItemLayout {
-                    title.text: i18n.tr("My other apps")
+//            ListItem {
+//                visible: header_sections.selectedIndex === 2
+//                ListItemLayout {
+//                    title.text: i18n.tr("My other apps")
 
-                    ProgressionSlot {}
-                }
-                onClicked: Qt.openUrlExternally('')
-            }
+//                    ProgressionSlot {}
+//                }
+//                onClicked: Qt.openUrlExternally('')
+//            }
+
+//            ListItem {
+//                visible: header_sections.selectedIndex === 0 || header_sections.selectedIndex === 2
+//                ListItemLayout {
+//                    title.text: i18n.tr("Donate")
+
+//                    ProgressionSlot {
+//                        name: "like"
+//                        color: UbuntuColors.red
+//                        height: units.gu(3)
+//                        width: height
+//                    }
+//                }
+//                onClicked: Qt.openUrlExternally('')
+//            }
         }
     }
 }

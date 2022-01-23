@@ -1237,7 +1237,7 @@ Page {
                             }
 
                             Label {
-                                text: i18n.tr("background colour")
+                                text: i18n.tr("Background colour")
                             }
 
                             Row {
@@ -1284,7 +1284,6 @@ Page {
                                             z: -1
                                             source: "../img/bars/back_color_bar.png"
                                             fillMode: Image.Stretch
-//                                            anchors.verticalCenter: parent.verticalCenter
                                             anchors.right: parent.right
                                             anchors.left: parent.left
                                         }
@@ -1324,7 +1323,6 @@ Page {
                             }
                         }
                     }
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                     
                     ListItem {
                         id: text_color_setting_item
