@@ -1,0 +1,37 @@
+[Desktop Entry]
+Name=Night Clock
+Exec=qmlscene $@ Main.qml
+Icon=NightClock.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Splash-Color=#000
+
+Name[ar]=ساعة ليلية
+Name[ast]=Night Clock
+Name[ca]=Rellotge nocturn
+Name[cs]=Noční hodiny
+Name[da]=Nat ur
+Name[de]=Nacht Uhr
+Name[el]=Ρολόι νυκτός
+Name[en_GB]=Night Clock
+Name[eo]=Night Clock
+Name[es]=Reloj de noche
+Name[eu]=Gau Ordularia
+Name[fa]=Night Clock
+Name[fi]=Yökello
+Name[fr]=Horloge nocturne
+Name[gl]=Reloxo nocturno
+Name[hr]=Noćni sat
+Name[hu]=Éjjeli óra
+Name[id]=Jam malam
+Name[it]=Night Clock
+Name[nl]=Nachtklok
+Name[pl]=Zegar Nocny
+Name[pt]=Night Clock
+Name[ro]=Ceas pentru noapte
+Name[ru]=Night Clock
+Name[sk]=Nočné hodiny
+Name[sl]=Nočna ura
+Name[tr]=Gece Saati
+Name[zh_CN]=夜间时钟

@@ -1,0 +1,7 @@
+{
+    "policy_groups": [
+        "keep-display-on",
+        "calendar"
+    ],
+    "policy_version": 1.3
+}
