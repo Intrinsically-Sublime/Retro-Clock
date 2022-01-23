@@ -7,7 +7,7 @@
 ----------
 The code in this repository is under the [Simplified BSD license](https://opensource.org/licenses/BSD-2-Clause)
 
-All of the custom artwork will be in a seperate repository under a [non-commercial license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+All of the custom artwork is in a seperate repository under an [Attribution Non-Commercial Share-Alike license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## Credits
 ----------
@@ -122,7 +122,6 @@ are global.
     * 5 types of clocks. (same faces as oscilloscope) (Color matches Text color)
 
 ------------------------
-https://github.com/Intrinsically-Sublime/retro-clock/blob/main/
 
 #### All pictures show the colors of the actual real life displays.
  The colors are customizable in the settings menu.
@@ -225,5 +224,14 @@ https://github.com/Intrinsically-Sublime/retro-clock/blob/main/
 #### Type E
 <img alt="analog faces E" src=".art/banners/analoge.png" title="Analog Face E clock with seconds displayed" width="50%"/>
 
+### Build from source
+Install [Clickable](https://clickable-ut.dev/en/latest/)
 
+Download [images](https://github.com/Intrinsically-Sublime/rc-images) and place the "img" folder in the root of Retro-Clock
 
+Open terminal at Retro-Clock root and run Clickable
+
+----------
+
+Copyright (c) 2-22, [Intrinsically-Sublime](https://github.com/Intrinsically-Sublime)
+All rights reserved.
