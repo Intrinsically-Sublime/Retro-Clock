@@ -131,7 +131,7 @@ are global.
 
 ------------------------
 
-#### All pictures show the colors of the actual real life displays.
+**All pictures show the colors of the actual real life displays.**
  The colors are customizable in the settings menu.
 
 ### B7971 15 Segment Nixie Tubes
