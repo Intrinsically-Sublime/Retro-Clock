@@ -18,14 +18,15 @@ Page {
     header: PageHeader {
         id: main_header
 
-        title: i18n.tr("Settings")
+        title: i18n.tr("Settings for " + presetTheme[currentPreset][2])
         StyleHints {
-            backgroundColor: isDayMode ? back_color_day : back_color
+            backgroundColor: back_color
         }
         extension: Sections {
             id: header_sections
             StyleHints {
-                selectedSectionColor: isDayMode ? "#0a2449" : "#e8ae0e"
+                selectedSectionColor: "#e8ae0e"
+//                selectedSectionColor: isDayMode ? "#0a2449" : "#e8ae0e"
                 sectionColor:"#f7f7f7"
             }
             anchors {
@@ -33,7 +34,7 @@ Page {
                 right: parent.right
                 bottom: parent.bottom
             }
-            model: [i18n.tr("Appearance"), i18n.tr("Time & Date Format")]
+            model: [i18n.tr("Appearance"), i18n.tr("Advanced"), i18n.tr("Time & Date Format")]
         }
 
     }
@@ -53,7 +54,7 @@ Page {
             property int digit_width: displaySeconds ? Math.min(preview_rect.width*2/16, (preview_rect.height - day_label.height - date_label.height - ap_label.height - units.gu(8))*2/3)
                                                      : Math.min(preview_rect.width*4/20, (preview_rect.height - day_label.height - date_label.height - ap_label.height - units.gu(8))*2/3)
 
-            color: isDayMode ? back_color_day : back_color
+            color: back_color
             width: isLandscape ? root_settingpage.width/2 : root_settingpage.width
             height: isLandscape ? root_settingpage.height - main_header.height : (root_settingpage.height - main_header.height)/2
 
@@ -93,7 +94,7 @@ Page {
                         source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                         width: preview_rect.digit_width
                         height: width * 4
-                        color: isDayMode ? text_color_day : text_color
+                        color: text_color
                     }
                     
                     BrightnessContrast {
@@ -114,7 +115,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_h
                         source: time_h
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -130,7 +131,7 @@ Page {
                         source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                         width: preview_rect.digit_width
                         height: width * 4
-                        color: isDayMode ? text_color_day : text_color
+                        color: text_color
                     }
                     
                     BrightnessContrast {
@@ -151,7 +152,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_hh
                         source: time_hh
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -167,7 +168,7 @@ Page {
                         source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                         width: preview_rect.digit_width
                         height: width * 4
-                        color: isDayMode ? text_color_day : text_color
+                        color: text_color
                     }
                     
                     BrightnessContrast {
@@ -188,7 +189,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_colon
                         source: time_colon
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -204,7 +205,7 @@ Page {
                         source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                         width: preview_rect.digit_width
                         height: width * 4
-                        color: isDayMode ? text_color_day : text_color
+                        color: text_color
                     }
                     
                     BrightnessContrast {
@@ -225,7 +226,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_m
                         source: time_m
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -241,7 +242,7 @@ Page {
                         source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                         width: preview_rect.digit_width
                         height: width * 4
-                        color: isDayMode ? text_color_day : text_color
+                        color: text_color
                     }
                     
                     BrightnessContrast {
@@ -262,7 +263,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_mm
                         source: time_mm
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -278,7 +279,7 @@ Page {
                         source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                         width: displaySeconds ?  preview_rect.digit_width : 0
                         height: width * 4
-                        color: isDayMode ? text_color_day : text_color
+                        color: text_color
                     }
                     
                     BrightnessContrast {
@@ -299,7 +300,7 @@ Page {
                     HueSaturation {
                         anchors.fill: sec_colon
                         source: sec_colon
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -315,7 +316,7 @@ Page {
                         source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                         width: displaySeconds ? preview_rect.digit_width : 0
                         height: width * 4
-                        color: isDayMode ? text_color_day : text_color
+                        color: text_color
                     }
                     
                     BrightnessContrast {
@@ -336,7 +337,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_s
                         source: time_s
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -352,7 +353,7 @@ Page {
                         source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                         width: displaySeconds ? preview_rect.digit_width : 0
                         height: width * 4
-                        color: isDayMode ? text_color_day : text_color
+                        color: text_color
                     }
                     
                     BrightnessContrast {
@@ -373,7 +374,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_ss
                         source: time_ss
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
             }
@@ -388,14 +389,14 @@ Page {
                     right: parent.right
                     rightMargin: units.gu(2)
                 }
-                color: isDayMode ? text_color_day : text_color
+                color: text_color
             }
 
             Label {
                 id: day_label
 
                 visible: displayDate
-                color: isDayMode ? text_color_day : text_color
+                color: text_color
                 text: this_day
                 anchors {
                     top: ap_label.bottom
@@ -409,7 +410,7 @@ Page {
                 id: date_label
 
                 visible: displayDate
-                color: isDayMode ? text_color_day : text_color
+                color: text_color
                 text: this_date
                 anchors {
                     top: day_label.bottom
@@ -446,7 +447,7 @@ Page {
                     ListItem {
                         id: date_format_setting_item
 
-                        visible: header_sections.selectedIndex === 1
+                        visible: header_sections.selectedIndex === 2
                         height: d_f_layout.height
                         divider.visible: false
 
@@ -469,7 +470,7 @@ Page {
                     ListItem {
                         id: time_format_setting_item
 
-                        visible: header_sections.selectedIndex === 1
+                        visible: header_sections.selectedIndex === 2
                         height: t_f_layout.height
                         divider.visible: false
 
@@ -490,66 +491,61 @@ Page {
                     }
 
                     ListItem {
-                        id: display_date_item
-
+                        id: preset_name_label
+                        
                         visible: header_sections.selectedIndex === 1
-                        height: d_layout.height
+                        height: units.gu(3)
                         divider.visible: false
+
                         ListItemLayout {
-                            id: d_layout
-
-                            title.text: i18n.tr("Display date")
-
-                            CheckBox {
-                                id: d_switch
-
-                                checked: displayDate
-                                onCheckedChanged: displayDate = checked
+                            id: name_field_label_layout
+                            Label {
+                                id: name_field_label
+                                text: i18n.tr("Theme Name")
                                 SlotsLayout.position: SlotsLayout.Leading
+                                SlotsLayout.overrideVerticalPositioning : true
+                                anchors.verticalCenter: parent.verticalCenter
                             }
                         }
-                        onClicked: d_switch.checked = !d_switch.checked
                     }
 
                     ListItem {
-                        id: display_seconds_setting_item
-
+                        id: preset_name_setting
+                        
                         visible: header_sections.selectedIndex === 1
-                        height: s_layout.height
+                        height: units.gu(6)
                         divider.visible: false
+
                         ListItemLayout {
-                            id: s_layout
-                            title.text: i18n.tr("Display seconds")
-
-                            CheckBox {
-                                id: s_switch
-
-                                checked: displaySeconds
-                                onCheckedChanged: displaySeconds = checked
-                                SlotsLayout.position: SlotsLayout.Leading
+                            id: name_field_layout
+                            
+                            TextField {
+                                id: name_field
+                                text: presetTheme[currentPreset][2]
+                            }
+                            
+                            Button {
+                                
+                                text: "Save"
+                                SlotsLayout.position: SlotsLayout.Trailing
+                                SlotsLayout.overrideVerticalPositioning : true
+                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.right: parent.right
+                                anchors.leftMargin: units.gu(2)
+                                anchors.rightMargin: units.gu(2)
+                                height: units.gu(4)
+                                onClicked: {
+                                    themeName = name_field.text
+                                    presetTheme[currentPreset][2] = themeName
+                                }
                             }
                         }
-                        onClicked: {
-                            s_switch.checked = !s_switch.checked
-                            blinkColons = false
-                            }
                     }
-
-                    Label {
-                        id: seconds_warning
-
-                        visible: displaySeconds && header_sections.selectedIndex === 1
-                        color: UbuntuColors.red
-                        x: units.gu(2)
-                        width: parent.width - units.gu(4)
-                        text: i18n.tr("WARNING: This setting will reduce battery life")
-                        wrapMode: Text.Wrap
-                    }
-
+                    
                     ListItem {
                         id: show_fullscreen_setting_item
 
-                        visible: header_sections.selectedIndex === 0
+                        visible: header_sections.selectedIndex === 1
                         height: fs_layout.height * 3 / 4
                         divider.visible: false
                         ListItemLayout {
@@ -566,13 +562,15 @@ Page {
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
-                        onClicked: fs_switch.checked = !fs_switch.checked
+                        onClicked: {
+                            fs_switch.checked = !fs_switch.checked
+                        }
                     }
 
                     ListItem {
                         id: move_digits_setting_item
 
-                        visible: header_sections.selectedIndex === 0
+                        visible: header_sections.selectedIndex === 1
                         height: m_d_lil.height * 3 / 4
                         divider.visible: false
                         ListItemLayout {
@@ -584,20 +582,25 @@ Page {
                                 id: md_switch
 
                                 checked: moveNumbers
-                                onCheckedChanged: moveNumbers = checked
+                                onCheckedChanged: { 
+                                    moveNumbers = checked
+                                    presetTheme[currentPreset][7] = moveNumbers
+                                }
                                 SlotsLayout.overrideVerticalPositioning : true
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
-                        onClicked: md_switch.checked = !md_switch.checked
+                        onClicked: {
+                            md_switch.checked = !md_switch.checked
+                        }
                     }
 
                     ListItem {
                         id: display_alarms_setting_item
 
-                        visible: header_sections.selectedIndex === 0
-                        height: displaySeconds ? a_layout.height * 3 / 4 : a_layout.height
-                        divider.visible: !displaySeconds
+                        visible: header_sections.selectedIndex === 1
+                        height: a_layout.height * 3 / 4
+                        divider.visible: false
 
                         ListItemLayout {
                             id: a_layout
@@ -608,20 +611,90 @@ Page {
                                 id: a_switch
 
                                 checked: displayAlarms
-                                onCheckedChanged: displayAlarms = checked
+                                onCheckedChanged: {
+                                    displayAlarms = checked
+                                    presetTheme[currentPreset][5] = displayAlarms
+                                }
                                 SlotsLayout.overrideVerticalPositioning : true
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
-                        onClicked: a_switch.checked = !a_switch.checked
+                        onClicked: {
+                            a_switch.checked = !a_switch.checked
+                        }
+                    }
+
+                    ListItem {
+                        id: display_date_item
+
+                        visible: header_sections.selectedIndex === 1
+                        height: d_layout.height * 3 / 4
+                        divider.visible: false
+                        ListItemLayout {
+                            id: d_layout
+
+                            title.text: i18n.tr("Display date")
+
+                            Switch {
+                                id: d_switch
+
+                                checked: displayDate
+                                onCheckedChanged: {
+                                    displayDate = checked
+                                    presetTheme[currentPreset][4] = displayDate
+                                }
+                            }
+                        }
+                        onClicked: {
+                            d_switch.checked = !d_switch.checked
+                        }
+                    }
+
+                    ListItem {
+                        id: display_seconds_setting_item
+
+                        visible: header_sections.selectedIndex === 1
+                        height: s_layout.height * 3 / 4
+                        divider.visible: false
+                        ListItemLayout {
+                            id: s_layout
+                            title.text: i18n.tr("Display seconds")
+
+                            Switch {
+                                id: s_switch
+
+                                checked: displaySeconds
+                                onCheckedChanged: {
+                                    displaySeconds = checked
+                                    blinkColons = false
+
+                                    presetTheme[currentPreset][3] = displaySeconds
+                                    presetTheme[currentPreset][6] = blinkColons
+                                }
+                            }
+                        }
+                        onClicked: {
+                            s_switch.checked = !s_switch.checked
+                        }
+                    }
+
+                    Label {
+                        id: seconds_warning
+
+                        visible: displaySeconds && header_sections.selectedIndex === 1
+                        color: UbuntuColors.red
+                        x: units.gu(2)
+                        width: parent.width - units.gu(4)
+                        text: i18n.tr("WARNING: This setting may reduce battery life")
+                        wrapMode: Text.Wrap
                     }
 
                     ListItem {
                         id: blink_colons_setting_item
 
-                        visible: displaySeconds && header_sections.selectedIndex === 0
-                        height: b_layout.height
-                        divider.visible: displaySeconds
+                        visible: displaySeconds && header_sections.selectedIndex === 1
+                        height: b_layout.height * 3 / 4
+                        divider.visible: false
                         ListItemLayout {
                             id: b_layout
                             title.text: i18n.tr("Blinky colons")
@@ -630,18 +703,23 @@ Page {
                                 id: b_switch
 
                                 checked: blinkColons
-                                onCheckedChanged: blinkColons = checked
+                                onCheckedChanged: {
+                                    blinkColons = checked
+                                    presetTheme[currentPreset][6] = blinkColons
+                                }
                                 SlotsLayout.overrideVerticalPositioning : true
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
-                        onClicked: b_switch.checked = !b_switch.checked
+                        onClicked: {
+                            b_switch.checked = !b_switch.checked
+                        }
                     }
 
                     ListItem {
                         id: digital_tube_setting_item
 
-                        height: units.gu(10)
+                        height: units.gu(9)
                         visible: header_sections.selectedIndex === 0
                         divider.visible: false
 
@@ -653,7 +731,7 @@ Page {
                                 right: parent.right
                                 rightMargin: units.gu(2)
                             }
-                            spacing: units.dp(1)
+                            spacing: units.dp(3)
 
                             Label {
                                 text: i18n.tr("Tube Clocks")
@@ -662,7 +740,7 @@ Page {
                             Flickable {
                                 id: digital_tube
                                 width: parent.width
-                                height: units.gu(6)
+                                height: units.gu(4)
                                 contentWidth: digital_tube_row.width
                                 clip: true
 
@@ -680,23 +758,23 @@ Page {
 
                                         Item {
                                             width: units.gu(4)
-                                            height: units.gu(6)
+                                            height: units.gu(4)
 
                                             Icon {
                                                 id: digital_tube_icon
 
-                                                source: "../img/" + modelData + "8" + ".png"
+                                                source: "../img/" + modelData + "icon.png"
                                                 anchors.centerIn: parent
                                                 width: height
-                                                height: units.gu(11)
+                                                height: units.gu(4)
                                             }
                                             MouseArea {
                                                 anchors.fill: parent
                                                 onClicked: {
-                                                    isDayMode ? clock_theme_day = modelData
-                                                              : clock_theme = modelData
+                                                    selected_theme = modelData
                                                     modelData.slice(0,6) == "analog" ? isAnalog = true : isAnalog = false
                                                     isAnalog ? updateTimeAnalog() : updateTime
+                                                    presetTheme[currentPreset][0] = selected_theme
                                                 }
                                             }
                                         }
@@ -720,11 +798,7 @@ Page {
                                 right: parent.right
                                 rightMargin: units.gu(2)
                             }
-                            spacing: units.dp(1)
-
-//                            Label {
-//                                text: i18n.tr("")
-//                            }
+                            spacing: units.dp(3)
 
                             Flickable {
                                 id: digital_other
@@ -749,23 +823,23 @@ Page {
 
                                         Item {
                                             width: units.gu(4)
-                                            height: units.gu(6)
+                                            height: units.gu(4)
 
                                             Icon {
                                                 id: digital_led_icon
 
-                                                source: "../img/" + modelData + "8" + ".png"
+                                                source: "../img/" + modelData + "icon.png"
                                                 anchors.centerIn: parent
                                                 width: height
-                                                height: units.gu(11)
+                                                height: units.gu(4)
                                             }
                                             MouseArea {
                                                 anchors.fill: parent
                                                 onClicked: {
-                                                    isDayMode ? clock_theme_day = modelData
-                                                              : clock_theme = modelData
+                                                    selected_theme = modelData
                                                     modelData.slice(0,6) == "analog" ? isAnalog = true : isAnalog = false
                                                     isAnalog ? updateTimeAnalog() : updateTime
+                                                    presetTheme[currentPreset][0] = selected_theme
                                                 }
                                             }
                                         }
@@ -781,7 +855,7 @@ Page {
                         visible: header_sections.selectedIndex === 0
 
                         ListItemLayout {
-                            id: tube_hue_layout
+                            id: tubeHue_layout
                             
                             Label {
                                 id: slider_tube_h_label
@@ -804,8 +878,11 @@ Page {
                                 live: true
                                 minimumValue: 0
                                 maximumValue: 1
-                                value: !slider_h.pressed ? isDayMode ? tube_hue_day : tube_hue : ""
-                                onValueChanged: isDayMode ? tube_hue_day = slider_h.value : tube_hue = slider_h.value
+                                value: !slider_h.pressed ? tubeHue : ""
+                                onValueChanged: {
+                                    tubeHue = slider_h.value
+                                    presetTheme[currentPreset][1] = tubeHue
+                                }
                             }
                         }
                     }
@@ -825,7 +902,7 @@ Page {
                                 right: parent.right
                                 rightMargin: units.gu(2)
                             }
-                            spacing: units.dp(1)
+                            spacing: units.dp(3)
 
                             Label {
                                 text: i18n.tr("L.E.D. & Flip Clocks")
@@ -835,7 +912,7 @@ Page {
                                 id: digital_led
                                 
                                 width: parent.width
-                                height: units.gu(6)
+                                height: units.gu(4)
                                 contentWidth: digital_led_row.width
                                 clip: true
 
@@ -853,23 +930,23 @@ Page {
 
                                         Item {
                                             width: units.gu(4)
-                                            height: units.gu(6)
+                                            height: units.gu(4)
 
                                             Icon {
                                                 id: digital_led_icon
 
-                                                source: "../img/" + modelData + "8" + ".png"
+                                                source: "../img/" + modelData + "icon.png"
                                                 anchors.centerIn: parent
                                                 width: height
-                                                height: units.gu(11)
+                                                height: units.gu(4)
                                             }
                                             MouseArea {
                                                 anchors.fill: parent
                                                 onClicked: {
-                                                    isDayMode ? clock_theme_day = modelData
-                                                              : clock_theme = modelData
+                                                    selected_theme = modelData
                                                     modelData.slice(0,6) == "analog" ? isAnalog = true : isAnalog = false
                                                     isAnalog ? updateTimeAnalog() : updateTime
+                                                    presetTheme[currentPreset][0] = selected_theme
                                                 }
                                             }
                                         }
@@ -893,7 +970,7 @@ Page {
                                 right: parent.right
                                 rightMargin: units.gu(2)
                             }
-                            spacing: units.dp(1)
+                            spacing: units.dp(3)
 
                             Label {
                                 text: i18n.tr("Analog Clocks")
@@ -927,7 +1004,7 @@ Page {
                                             Icon {
                                                 id: analog_theme_icon
 
-                                                source: "../img/" + modelData + "icon" + ".png"
+                                                source: "../img/" + modelData + "icon.png"
                                                 anchors.centerIn: parent
                                                 width: height
                                                 height: units.gu(4)
@@ -935,10 +1012,10 @@ Page {
                                             MouseArea {
                                                 anchors.fill: parent
                                                 onClicked: {
-                                                    isDayMode ? clock_theme_day = modelData
-                                                              : clock_theme = modelData
+                                                    selected_theme = modelData
                                                     modelData.slice(0,6) == "analog" ? isAnalog = true : isAnalog = false
                                                     isAnalog ? updateTimeAnalog() : updateTime
+                                                    presetTheme[currentPreset][0] = selected_theme
                                                 }
                                             }
                                         }
@@ -964,12 +1041,17 @@ Page {
                                 id: osc_switch
 
                                 checked: hideOscilloscope
-                                onCheckedChanged: hideOscilloscope = checked
+                                onCheckedChanged: {
+                                    hideOscilloscope = checked
+                                    presetTheme[currentPreset][8] = hideOscilloscope
+                                }
                                 SlotsLayout.overrideVerticalPositioning : true
                                 anchors.verticalCenter: parent.verticalCenter
                             }
                         }
-                        onClicked: osc_switch.checked = !osc_switch.checked
+                        onClicked: {
+                            osc_switch.checked = !osc_switch.checked
+                        }
                     }
                     
                     ListItem {
@@ -1041,8 +1123,8 @@ Page {
                                         MouseArea {
                                             anchors.fill: parent
                                             onClicked: {
-                                                isDayMode ? text_color_day = text_color_rect.color
-                                                          : text_color = text_color_rect.color
+                                                text_color = text_color_rect.color
+                                                savePresetTextColor(text_color)
                                             }
                                         }
                                     }
@@ -1120,8 +1202,8 @@ Page {
                                         MouseArea {
                                             anchors.fill: parent
                                             onClicked: {
-                                                isDayMode ? back_color_day = back_color_rect.color
-                                                          : back_color = back_color_rect.color
+                                                back_color = back_color_rect.color
+                                                savePresetBackColor(back_color)
                                             }
                                         }
                                     }

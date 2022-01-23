@@ -32,7 +32,7 @@ Item {
                 source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                 width: digitWidth
                 height: width * 4
-                color: isDayMode ? text_color_day : text_color
+                color: text_color
             }
                     
             BrightnessContrast {
@@ -53,7 +53,7 @@ Item {
             HueSaturation {
                 anchors.fill: time_h
                 source: time_h
-                hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                hue: isDigtal ? tubeHue : "0"
             }
         }
 
@@ -69,7 +69,7 @@ Item {
                 source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                 width: digitWidth
                 height: width * 4
-                color: isDayMode ? text_color_day : text_color
+                color: text_color
             }
                     
             BrightnessContrast {
@@ -90,7 +90,7 @@ Item {
             HueSaturation {
                 anchors.fill: time_hh
                 source: time_hh
-                hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                hue: isDigtal ? tubeHue : "0"
             }
         }
 
@@ -106,7 +106,7 @@ Item {
                 source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                 width: digitWidth
                 height: width * 4
-                color: isDayMode ? text_color_day : text_color
+                color: text_color
             }
                     
             BrightnessContrast {
@@ -127,7 +127,7 @@ Item {
             HueSaturation {
                 anchors.fill: time_colon
                 source: time_colon
-                hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                hue: isDigtal ? tubeHue : "0"
             }
         }
 
@@ -143,7 +143,7 @@ Item {
                 source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                 width: digitWidth
                 height: width * 4
-                color: isDayMode ? text_color_day : text_color
+                color: text_color
             }
                     
             BrightnessContrast {
@@ -164,7 +164,7 @@ Item {
             HueSaturation {
                 anchors.fill: time_m
                 source: time_m
-                hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                hue: isDigtal ? tubeHue : "0"
             }
         }
 
@@ -180,7 +180,7 @@ Item {
                 source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                 width: digitWidth
                 height: width * 4
-                color: isDayMode ? text_color_day : text_color
+                color: text_color
             }
                     
             BrightnessContrast {
@@ -201,7 +201,7 @@ Item {
             HueSaturation {
                 anchors.fill: time_mm
                 source: time_mm
-                hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                hue: isDigtal ? tubeHue : "0"
             }
         }
 
@@ -217,7 +217,7 @@ Item {
                 source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                 width: displaySeconds ? digitWidth : 0
                 height: width * 4
-                color: isDayMode ? text_color_day : text_color
+                color: text_color
             }
                     
             BrightnessContrast {
@@ -238,8 +238,8 @@ Item {
 
             HueSaturation {
                 anchors.fill: sec_colon
-                source: time_colon
-                hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                source: sec_colon
+                hue: isDigtal ? tubeHue : "0"
             }
         }
 
@@ -255,7 +255,7 @@ Item {
                 source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                 width: displaySeconds ? digitWidth : 0
                 height: width * 4
-                color: isDayMode ? text_color_day : text_color
+                color: text_color
             }
                     
             BrightnessContrast {
@@ -276,7 +276,7 @@ Item {
             HueSaturation {
                 anchors.fill: time_s
                 source: time_s
-                hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                hue: isDigtal ? tubeHue : "0"
             }
         }
 
@@ -292,7 +292,7 @@ Item {
                 source: isLed ? "../img/" + selected_theme + "light.svg" : ""
                 width: displaySeconds ? digitWidth : 0
                 height: width * 4
-                color: isDayMode ? text_color_day : text_color
+                color: text_color
             }
                     
             BrightnessContrast {
@@ -313,7 +313,7 @@ Item {
             HueSaturation {
                 anchors.fill: time_ss
                 source: time_ss
-                hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                hue: isDigtal ? tubeHue : "0"
             }
         }
     }

@@ -9,12 +9,13 @@ Page {
 
         title: i18n.tr("Information")
         StyleHints {
-            backgroundColor: isDayMode ? back_color_day : back_color
+            backgroundColor: back_color
         }
         extension: Sections {
             id: header_sections
             StyleHints {
-                selectedSectionColor: isDayMode ? "#0a2449" : "#e8ae0e"
+                selectedSectionColor: "#e8ae0e"
+//                selectedSectionColor: isDayMode ? "#0a2449" : "#e8ae0e"
                 sectionColor:"#f7f7f7"
             }
             anchors {

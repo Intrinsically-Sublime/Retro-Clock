@@ -33,16 +33,14 @@ Item {
                 mainSlot: Column {
 
                     Label {
-                        color: isDayMode ? text_color_day
-                                         : text_color
+                        color: text_color
                         text: message
                         width: parent.width
                         elide: Text.ElideRight
                     }
 
                     Label {
-                        color: isDayMode ? text_color_day
-                                         : text_color
+                        color: text_color
                         text: Qt.formatDateTime(date, time_format)
                         textSize: Label.XLarge
                     }
@@ -58,8 +56,7 @@ Item {
                                     id: short_day_name
 
                                     opacity: daysOfWeek & modelData ? 1 : .4
-                                    color: isDayMode ? text_color_day
-                                                     : text_color
+                                    color: text_color
                                     anchors.horizontalCenter: parent.horizontalCenter
                                     text: Qt.locale().standaloneDayName(index + 1, Locale.ShortFormat)
                                     textSize: Label.Small
@@ -69,8 +66,7 @@ Item {
                                     id: underline_rect
 
                                     visible: daysOfWeek & modelData
-                                    color: isDayMode ? text_color_day
-                                                     : text_color
+                                    color: text_color
                                     width: units.gu(3)
                                     height: units.dp(2)
                                     anchors.horizontalCenter: parent.horizontalCenter
@@ -85,8 +81,7 @@ Item {
                     SlotsLayout.position: SlotsLayout.Leading
                     SlotsLayout.overrideVerticalPositioning : true
                     anchors.verticalCenter: parent.verticalCenter
-                    color: isDayMode ? text_color_day
-                                     : text_color
+                    color: text_color
                     name: "alarm-clock"
                     height: units.gu(3)
                 }

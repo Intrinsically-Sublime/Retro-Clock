@@ -5,8 +5,7 @@ import "../img"
 Item {
     id: analog_root
 
-    property color main_color: isDayMode ? text_color_day
-                                         : text_color
+    property color main_color: text_color
     
     Icon {
         id: background

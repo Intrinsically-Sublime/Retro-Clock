@@ -9,7 +9,7 @@ Page {
 
         title: i18n.tr("Time format")
         StyleHints {
-            backgroundColor: isDayMode ? back_color_day : back_color
+            backgroundColor: back_color
         }
     }
 

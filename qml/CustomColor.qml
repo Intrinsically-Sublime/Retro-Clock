@@ -5,8 +5,8 @@ import QtGraphicalEffects 1.12
 Page {
     id: root_custom_color
 
-    property color temp_text_color: isDayMode ? text_color_day : text_color
-    property color temp_back_color: isDayMode ? back_color_day : back_color
+    property color temp_text_color: text_color
+    property color temp_back_color: back_color
 
     property bool blankDigit: (preview_rect.is24hour && !preview_rect.withLeadingZero && time_24.charAt(0) == "0") ||
              (!preview_rect.is24hour && !preview_rect.withLeadingZero && time_12.charAt(0) == "0") ? 1 : 0
@@ -20,10 +20,10 @@ Page {
     header: PageHeader {
         id: main_header
 
-        title: color_edited == "text_color" ? i18n.tr("Foreground colour")
-                                            : i18n.tr("Background colour")
+        title: color_edited == "text_color" ? i18n.tr("Foreground colour for " + presetTheme[currentPreset][2])
+                                            : i18n.tr("Background colour for " + presetTheme[currentPreset][2])
         StyleHints {
-            backgroundColor: isDayMode ? back_color_day : back_color
+            backgroundColor: back_color
         }
         leadingActionBar.actions: [
             Action {
@@ -38,10 +38,10 @@ Page {
                 iconName: "ok"
 
                 onTriggered: {
-                    isDayMode ? text_color_day = temp_text_color
-                              : text_color = temp_text_color
-                    isDayMode ? back_color_day = temp_back_color
-                              : back_color = temp_back_color
+                    text_color = temp_text_color
+                    back_color = temp_back_color
+                    savePresetBackColor(back_color)
+                    savePresetTextColor(text_color)
                     page_stack.pop()
                 }
             }
@@ -50,20 +50,14 @@ Page {
 
     Component.onCompleted: {
         if(color_edited == "text_color") {
-            slider_r.value = isDayMode ? text_color_day.r
-                                       : text_color.r
-            slider_g.value = isDayMode ? text_color_day.g
-                                       : text_color.g
-            slider_b.value = isDayMode ? text_color_day.b
-                                       : text_color.b
+            slider_r.value = text_color.r
+            slider_g.value = text_color.g
+            slider_b.value = text_color.b
         }
         else {
-            slider_r.value = isDayMode ? back_color_day.r
-                                       : back_color.r
-            slider_g.value = isDayMode ? back_color_day.g
-                                       : back_color.g
-            slider_b.value = isDayMode ? back_color_day.b
-                                       : back_color.b
+            slider_r.value = back_color.r
+            slider_g.value = back_color.g
+            slider_b.value = back_color.b
         }
     }
 
@@ -144,7 +138,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_h
                         source: time_h
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -181,7 +175,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_hh_box
                         source: time_hh
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -218,7 +212,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_colon
                         source: time_colon
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -255,7 +249,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_m
                         source: time_m
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -292,7 +286,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_mm
                         source: time_mm
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -329,7 +323,7 @@ Page {
                     HueSaturation {
                         anchors.fill: sec_colon
                         source: sec_colon
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -366,7 +360,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_s
                         source: time_s
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
 
@@ -403,7 +397,7 @@ Page {
                     HueSaturation {
                         anchors.fill: time_ss
                         source: time_ss
-                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                        hue: isDigtal ? tubeHue : "0"
                     }
                 }
             }

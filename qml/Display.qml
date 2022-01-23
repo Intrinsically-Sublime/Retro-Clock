@@ -81,42 +81,91 @@ Page {
     header: PageHeader {
         id: main_header
 
-        title: i18n.tr("Retro Clock")
+        title: i18n.tr("Retro Clock ~ " + presetTheme[currentPreset][2])
         exposed: false
         StyleHints {
-            backgroundColor: isDayMode ? back_color_day : back_color
+            backgroundColor: back_color
             dividerColor: "transparent"
         }
-        leadingActionBar.actions: []
-        trailingActionBar.actions: [
-            Action {
-                iconName: isDayMode ? "night-mode" : "display-brightness-max"
+        
+        leadingActionBar.actions: []        
+        trailingActionBar {
+            actions: [
+                Action {
+                    iconSource: "../img/" + presetTheme[0][0] + "icon.png"
+                    text: i18n.tr(presetTheme[0][2])
 
-                onTriggered: {
-                    isDayMode = !isDayMode
-                    selected_theme.slice(0,6) == "analog" ? isAnalog = true : isAnalog = false
+                    onTriggered: {
+                        main_header.exposed = false
+                        loadPreset(0)
+                    }
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[1][0] + "icon.png"
+                    text: i18n.tr(presetTheme[1][2])
+
+                    onTriggered: {
+                        main_header.exposed = false
+                        loadPreset(1)
+                    }
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[2][0] + "icon.png"
+                    text: i18n.tr(presetTheme[2][2])
+
+                    onTriggered: {
+                        main_header.exposed = false
+                        loadPreset(2)
+                    }
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[3][0] + "icon.png"
+                    text: i18n.tr(presetTheme[3][2])
+
+                    onTriggered: {
+                        main_header.exposed = false
+                        loadPreset(3)
+                    }
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[4][0] + "icon.png"
+                    text: i18n.tr(presetTheme[4][2])
+
+                    onTriggered: {
+                        main_header.exposed = false
+                        loadPreset(4)
+                    }
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[5][0] + "icon.png"
+                    text: i18n.tr(presetTheme[5][2])
+
+                    onTriggered: {
+                        main_header.exposed = false
+                        loadPreset(5)
+                    }
+                },
+                Action {
+                    iconName: "settings"
+                    text: i18n.tr("Settings")
+
+                    onTriggered: {
+                        main_header.exposed = false
+                        page_stack.push(Qt.resolvedUrl("Settings.qml"))
+                    }
+                },
+                Action {
+                    iconName: "info"
+                    text: i18n.tr("Information")
+
+                    onTriggered: {
+                        main_header.exposed = false
+                        page_stack.push(Qt.resolvedUrl("About.qml"))
+                    }
                 }
-            },
-            Action {
-                iconName: "settings"
-                text: i18n.tr("Settings")
-
-                onTriggered: {
-                    main_header.exposed = false
-                    page_stack.push(Qt.resolvedUrl("Settings.qml"))
-                }
-            },
-            Action {
-                iconName: "info"
-                text: i18n.tr("Information")
-
-                onTriggered: {
-                    main_header.exposed = false
-                    page_stack.push(Qt.resolvedUrl("About.qml"))
-                }
-            }
-
-        ]
+            ]
+            numberOfSlots: 1
+        }
     }
 
     Timer {
@@ -138,8 +187,7 @@ Page {
                                                        : Math.min(display_back_rect.width * 4 / 22 - 20, (root_window.height - rest_height - 40) * 2 / 3)
 
 
-        color: isDayMode ? back_color_day
-                         : back_color
+        color: back_color
         anchors {
             top: main_header.bottom
             left: parent.left
@@ -225,8 +273,7 @@ Page {
                 text: time_12.substring(6)
                 anchors.right: parent.right
                 textSize: Label.Large
-                color: isDayMode ? text_color_day
-                                 : text_color
+                color: text_color
             }
         }
 
@@ -246,8 +293,7 @@ Page {
             Label {
                 id: day_label
 
-                color: isDayMode ? text_color_day
-                                 : text_color
+                color: text_color
                 text: this_day
                 anchors.left: parent.left
                 textSize: Label.XLarge
@@ -269,8 +315,7 @@ Page {
             Label {
                 id: date_label
 
-                color: isDayMode ? text_color_day
-                                 : text_color
+                color: text_color
                 text: this_date
                 anchors.left: parent.left
                 textSize: Label.XLarge
