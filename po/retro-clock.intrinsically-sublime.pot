@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the retro-clock.intrinsically-sublime package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: retro-clock.intrinsically-sublime\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-20 02:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/About.qml:10 ../qml/Display.qml:111
+msgid "Information"
+msgstr ""
+
+#: ../qml/About.qml:25
+msgid "Credits"
+msgstr ""
+
+#: ../qml/About.qml:25
+msgid "Summary"
+msgstr ""
+
+#: ../qml/About.qml:25
+msgid "Support"
+msgstr ""
+
+#: ../qml/About.qml:78 ../qml/Display.qml:84 ../qml/Main.qml:60
+#: retro-clock.desktop.in.h:1
+msgid "Retro Clock"
+msgstr ""
+
+#: ../qml/About.qml:89
+msgid "Take a trip back in time"
+msgstr ""
+
+#: ../qml/About.qml:98
+msgid "Website"
+msgstr ""
+
+#: ../qml/About.qml:108
+msgid "License"
+msgstr ""
+
+#: ../qml/About.qml:120
+msgid "Author"
+msgstr ""
+
+#: ../qml/About.qml:132
+msgid "Original Author"
+msgstr ""
+
+#: ../qml/About.qml:145
+msgid "Thank you to all translators."
+msgstr ""
+
+#: ../qml/About.qml:154
+msgid "Report bugs"
+msgstr ""
+
+#: ../qml/About.qml:164
+msgid "Help with translation"
+msgstr ""
+
+#: ../qml/About.qml:174
+msgid "My other apps"
+msgstr ""
+
+#: ../qml/CustomColor.qml:29 ../qml/Settings.qml:991
+msgid "Foreground colour"
+msgstr ""
+
+#: ../qml/CustomColor.qml:30 ../qml/Settings.qml:1070
+msgid "Background colour"
+msgstr ""
+
+#: ../qml/DateFormatSetting.qml:10 ../qml/Settings.qml:456
+msgid "Date format"
+msgstr ""
+
+#: ../qml/Display.qml:102 ../qml/Settings.qml:21
+msgid "Settings"
+msgstr ""
+
+#: ../qml/Settings.qml:36
+msgid "Appearance"
+msgstr ""
+
+#: ../qml/Settings.qml:36
+msgid "Time & Date Format"
+msgstr ""
+
+#: ../qml/Settings.qml:479 ../qml/TimeFormatSetting.qml:10
+msgid "Time format"
+msgstr ""
+
+#: ../qml/Settings.qml:501
+msgid "Display date"
+msgstr ""
+
+#: ../qml/Settings.qml:522
+msgid "Display seconds"
+msgstr ""
+
+#: ../qml/Settings.qml:545
+msgid "WARNING: This setting will reduce battery life"
+msgstr ""
+
+#: ../qml/Settings.qml:558
+msgid "Full screen"
+msgstr ""
+
+#: ../qml/Settings.qml:581
+msgid "Screensaver mode"
+msgstr ""
+
+#: ../qml/Settings.qml:605
+msgid "Display active alarms"
+msgstr ""
+
+#: ../qml/Settings.qml:627
+msgid "Blinky colons"
+msgstr ""
+
+#: ../qml/Settings.qml:659
+msgid "Tube Clocks"
+msgstr ""
+
+#: ../qml/Settings.qml:788
+msgid "Tube Hue"
+msgstr ""
+
+#: ../qml/Settings.qml:831
+msgid "L.E.D. & Flip Clocks"
+msgstr ""
+
+#: ../qml/Settings.qml:899
+msgid "Analog Clocks"
+msgstr ""
+
+#: ../qml/Settings.qml:961
+msgid "Hide Oscilloscope Background"
+msgstr ""

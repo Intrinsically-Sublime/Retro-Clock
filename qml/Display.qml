@@ -81,11 +81,10 @@ Page {
     header: PageHeader {
         id: main_header
 
-        title: i18n.tr("Night Clock")
+        title: i18n.tr("Retro Clock")
         exposed: false
         StyleHints {
-            backgroundColor: isDayMode ? "#e8ae0e" : "#0a2449"
-            foregroundColor: isDayMode ? "#0a2449" : "#e8ae0e"
+            backgroundColor: isDayMode ? back_color_day : back_color
             dividerColor: "transparent"
         }
         leadingActionBar.actions: []
@@ -95,6 +94,7 @@ Page {
 
                 onTriggered: {
                     isDayMode = !isDayMode
+                    selected_theme.slice(0,6) == "analog" ? isAnalog = true : isAnalog = false
                 }
             },
             Action {
@@ -132,10 +132,10 @@ Page {
 
         property bool withLeadingZero: time_format === "hh:mm" || time_format === "hh:mm ap"
         property bool is24hour: time_format === "hh:mm" || time_format === "h:mm"
-        property int digit_width: displaySeconds ? Math.min(display_back_rect.width * 2 / 13, (root_window.height - rest_height) * 2 / 3)
-                                                 : Math.min(display_back_rect.width * 4 / 17, (root_window.height - rest_height) * 2 / 3)
-        property int digit_width_small: displaySeconds ? Math.min(display_back_rect.width * 2 / 13 - 10, (root_window.height - rest_height - 20) * 2 / 3)
-                                                       : Math.min(display_back_rect.width * 4 / 17 - 10, (root_window.height - rest_height - 20) * 2 / 3)
+        property int digit_width: displaySeconds ? Math.min(display_back_rect.width * 2 / 18, (root_window.height - rest_height) * 2 / 3)
+                                                 : Math.min(display_back_rect.width * 4 / 22 - 10, (root_window.height - rest_height - 10) * 2 / 3)
+        property int digit_width_small: displaySeconds ? Math.min(display_back_rect.width * 2 / 18 - 10, (root_window.height - rest_height - 20) * 2 / 3)
+                                                       : Math.min(display_back_rect.width * 4 / 22 - 20, (root_window.height - rest_height - 40) * 2 / 3)
 
 
         color: isDayMode ? back_color_day
@@ -168,7 +168,7 @@ Page {
         Loader {
             id: analog_clock_loader
 
-            active: selected_theme === "analog"
+            active: isAnalog
             width: Math.min((root_window.height - rest_height), parent.width - units.gu(4))
             height: width
             x: analog_clock_x
@@ -179,7 +179,7 @@ Page {
         DigitalClock {
             id: digital_clock
 
-            visible: selected_theme !== "analog"
+            visible: !isAnalog
             x: digit_clock_x_m !== digit_clock_x_m ? (root_window.width - digital_clock.width) / digit_clock_x_m
                                                    : root_window.width - digital_clock.width
             y: digit_clock_y_m !== digit_clock_y_m ? (root_window.height - digital_clock.height) / digit_clock_y_m
@@ -192,7 +192,7 @@ Page {
                     target: digital_clock
                     minimumX: 0
                     maximumX: display_back_rect.width - digital_clock.width
-                    minimumY: 0
+                    minimumY: isLandscape ? - (digital_clock.height/2) : 0
                     maximumY: display_back_rect.height - digital_clock.height
                 }
                 onReleased: {
@@ -212,9 +212,9 @@ Page {
 
             visible: !display_back_rect.is24hour
             anchors {
-                top: selected_theme === "analog" ? analog_clock_loader.bottom : digital_clock.bottom
-                right: selected_theme === "analog" ? analog_clock_loader.right : digital_clock.right
-                rightMargin: selected_theme === "analog" ? 0 : units.gu(2)
+                top: isAnalog ? analog_clock_loader.bottom : digital_clock.bottom
+                right: isAnalog ? analog_clock_loader.right : digital_clock.right
+                rightMargin: isAnalog ? 0 : units.gu(2)
             }
             width: ap_label.implicitWidth
             height: visible ? ap_label.implicitHeight : 0

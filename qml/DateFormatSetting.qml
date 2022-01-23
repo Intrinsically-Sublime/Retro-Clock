@@ -9,8 +9,7 @@ Page {
 
         title: i18n.tr("Date format")
         StyleHints {
-            backgroundColor: isDayMode ? "#e8ae0e" : "#0a2449"
-            foregroundColor: isDayMode ? "#0a2449" : "#e8ae0e"
+            backgroundColor: isDayMode ? back_color_day : back_color
         }
     }
 

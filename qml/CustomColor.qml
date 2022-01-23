@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
+import QtGraphicalEffects 1.12
 
 Page {
     id: root_custom_color
@@ -7,20 +8,22 @@ Page {
     property color temp_text_color: isDayMode ? text_color_day : text_color
     property color temp_back_color: isDayMode ? back_color_day : back_color
 
+    property bool blankDigit: (preview_rect.is24hour && !preview_rect.withLeadingZero && time_24.charAt(0) == "0") ||
+             (!preview_rect.is24hour && !preview_rect.withLeadingZero && time_12.charAt(0) == "0") ? 1 : 0
+                        
     function setColor()
     {
         return color_edited == "text_color" ? temp_text_color = Qt.rgba(slider_r.value, slider_g.value, slider_b.value, 1)
                                             : temp_back_color = Qt.rgba(slider_r.value, slider_g.value, slider_b.value, 1)
     }
-
+    
     header: PageHeader {
         id: main_header
 
         title: color_edited == "text_color" ? i18n.tr("Foreground colour")
                                             : i18n.tr("Background colour")
         StyleHints {
-            backgroundColor: isDayMode ? "#e8ae0e" : "#0a2449"
-            foregroundColor: isDayMode ? "#0a2449" : "#e8ae0e"
+            backgroundColor: isDayMode ? back_color_day : back_color
         }
         leadingActionBar.actions: [
             Action {
@@ -76,8 +79,8 @@ Page {
 
             property bool withLeadingZero: time_format === "hh:mm" || time_format === "hh:mm ap"
             property bool is24hour: time_format === "hh:mm" || time_format === "h:mm"
-            property int digit_width: displaySeconds ? Math.min(preview_rect.width*2/13, (preview_rect.height - day_label.height - date_label.height - ap_label.height - units.gu(8))*2/3)
-                                                     : Math.min(preview_rect.width*4/17, (preview_rect.height - day_label.height - date_label.height - ap_label.height - units.gu(8))*2/3)
+            property int digit_width: displaySeconds ? Math.min(preview_rect.width*2/16, (preview_rect.height - day_label.height - date_label.height - ap_label.height - units.gu(8))*2/3)
+                                                     : Math.min(preview_rect.width*4/20, (preview_rect.height - day_label.height - date_label.height - ap_label.height - units.gu(8))*2/3)
 
             color: temp_back_color
             width: isLandscape ? root_custom_color.width/2 : root_custom_color.width
@@ -86,7 +89,7 @@ Page {
             AnalogClock {
                 id: analog_clock
 
-                visible: selected_theme === "analog"
+                visible: isAnalog
                 main_color: temp_text_color
                 width: (preview_rect.height - day_label.height - date_label.height - ap_label.height - units.gu(8))
                 height: width
@@ -100,6 +103,7 @@ Page {
             Row {
                 id: time_row
 
+                visible: !isAnalog
                 width: displaySeconds ? time_h.width * 6 + time_colon.width * 2 : time_h.width * 4 + time_colon.width
                 anchors {
                     right: parent.right
@@ -107,78 +111,300 @@ Page {
                     topMargin: units.gu(2)
                 }
 
-                Icon {
-                    id: time_h
-
-                    opacity: (preview_rect.is24hour && !preview_rect.withLeadingZero && time_24.charAt(0) == "0") ||
-                             (!preview_rect.is24hour && !preview_rect.withLeadingZero && time_12.charAt(0) == "0") ? 0 : 1
-                    source: selected_theme === "analog" ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(0) + ".svg" : "../img/" + selected_theme + time_12.charAt(0) + ".svg"
+                Item {
+                    id: time_h_box
                     width: preview_rect.digit_width
-                    height: width * 3/2
-                    color: temp_text_color
+                    height: width * 4
+                    
+                    Icon {
+                        id: time_h_light
+                        visible: (!blankDigit && isLed)
+
+                        source: isLed ? "../img/" + selected_theme + "light.svg" : ""
+                        width: preview_rect.digit_width
+                        height: width * 4
+                        color: temp_text_color
+                    }
+                    
+                    BrightnessContrast {
+                        anchors.fill: time_h_light
+                        source: time_h_light
+                        brightness: 0.5
+                        contrast: 0.5
+                    }
+                    
+                    Icon {
+                        id: time_h
+                        
+                        source: isAnalog ? "" : blankDigit ? "../img/" + selected_theme + "blank.png" : isAnalog ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(0) + ".png" : "../img/" + selected_theme + time_12.charAt(0) + ".png"
+                        width: preview_rect.digit_width
+                        height: width * 4
+                    }
+
+                    HueSaturation {
+                        anchors.fill: time_h
+                        source: time_h
+                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                    }
                 }
 
-                Icon {
-                    id: time_hh
-
-                    source: selected_theme === "analog" ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(1) + ".svg" : "../img/" + selected_theme + time_12.charAt(1) + ".svg"
+                Item {
+                    id: time_hh_box
                     width: preview_rect.digit_width
-                    height: width * 3/2
-                    color: temp_text_color
+                    height: width * 4
+                        
+                    Icon {
+                        id: time_hh_light
+                        visible: isLed
+
+                        source: isLed ? "../img/" + selected_theme + "light.svg" : ""
+                        width: preview_rect.digit_width
+                        height: width * 4
+                        color: temp_text_color
+                    }
+                    
+                    BrightnessContrast {
+                        anchors.fill: time_hh_light
+                        source: time_hh_light
+                        brightness: 0.5
+                        contrast: 0.5
+                    }
+                    
+                    Icon {
+                        id: time_hh
+
+                        source: isAnalog ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(1) + ".png" : "../img/" + selected_theme + time_12.charAt(1) + ".png"
+                        width: preview_rect.digit_width
+                        height: width * 4
+                    }
+
+                    HueSaturation {
+                        anchors.fill: time_hh_box
+                        source: time_hh
+                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                    }
                 }
 
-                Icon {
-                    id: time_colon
-
-                    source: selected_theme === "analog" ? "" : "../img/" + selected_theme + "colon.svg"
-                    width: preview_rect.digit_width/4
-                    height: time_h.height
-                    color: temp_text_color
-                }
-
-                Icon {
-                    id: time_m
-
-                    source: selected_theme === "analog" ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(2) + ".svg" : "../img/" + selected_theme + time_12.charAt(2) +".svg"
+                Item {
+                    id: time_colon_box
                     width: preview_rect.digit_width
-                    height: width * 3/2
-                    color: temp_text_color
+                    height: width * 4
+                        
+                    Icon {
+                        id: time_colon_light
+                        visible: isLed
+
+                        source: isLed ? "../img/" + selected_theme + "light.svg" : ""
+                        width: preview_rect.digit_width
+                        height: width * 4
+                        color: temp_text_color
+                    }
+                    
+                    BrightnessContrast {
+                        anchors.fill: time_colon_light
+                        source: time_colon_light
+                        brightness: 0.5
+                        contrast: 0.5
+                    }
+                    
+                    Icon {
+                        id: time_colon
+
+                        source: time_12.charAt(5) & 1 == 1 ? isAnalog ? "" : "../img/" + selected_theme + "colon.png" : isAnalog ? "" : blinkColons ? "../img/" + selected_theme + "blank_colon.png" : "../img/" + selected_theme + "colon.png"
+                        width: preview_rect.digit_width
+                        height: width * 4
+                    }
+
+                    HueSaturation {
+                        anchors.fill: time_colon
+                        source: time_colon
+                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                    }
                 }
 
-                Icon {
-                    id: time_mm
-
-                    source: selected_theme === "analog" ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(3) + ".svg" : "../img/" + selected_theme + time_12.charAt(3) +".svg"
+                Item {
+                    id: time_m_box
                     width: preview_rect.digit_width
-                    height: width * 3/2
-                    color: temp_text_color
+                    height: width * 4
+                        
+                    Icon {
+                        id: time_m_light
+                        visible: isLed
+
+                        source: isLed ? "../img/" + selected_theme + "light.svg" : ""
+                        width: preview_rect.digit_width
+                        height: width * 4
+                        color: temp_text_color
+                    }
+                    
+                    BrightnessContrast {
+                        anchors.fill: time_m_light
+                        source: time_m_light
+                        brightness: 0.5
+                        contrast: 0.5
+                    }
+                    
+                    Icon {
+                        id: time_m
+
+                        source: isAnalog ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(2) + ".png" : "../img/" + selected_theme + time_12.charAt(2) +".png"
+                        width: preview_rect.digit_width
+                        height: width * 4
+                    }
+
+                    HueSaturation {
+                        anchors.fill: time_m
+                        source: time_m
+                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                    }
                 }
 
-                Icon {
-                    id: sec_colon
+                Item {
+                    id: time_mm_box
+                    width: preview_rect.digit_width
+                    height: width * 4
+                        
+                    Icon {
+                        id: time_mm_light
+                        visible: isLed
 
-                    source: selected_theme === "analog" ? "" : "../img/" + selected_theme + "colon.svg"
-                    width: displaySeconds ? preview_rect.digit_width/4 : 0
-                    height: time_h.height
-                    color: temp_text_color
+                        source: isLed ? "../img/" + selected_theme + "light.svg" : ""
+                        width: preview_rect.digit_width
+                        height: width * 4
+                        color: temp_text_color
+                    }
+                    
+                    BrightnessContrast {
+                        anchors.fill: time_mm_light
+                        source: time_mm_light
+                        brightness: 0.5
+                        contrast: 0.5
+                    }
+                    
+                    Icon {
+                        id: time_mm
+
+                        source: isAnalog ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(3) + ".png" : "../img/" + selected_theme + time_12.charAt(3) +".png"
+                        width: preview_rect.digit_width
+                        height: width * 4
+                    }
+
+                    HueSaturation {
+                        anchors.fill: time_mm
+                        source: time_mm
+                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                    }
                 }
 
-                Icon {
-                    id: time_s
-
-                    source: selected_theme === "analog" ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(4) + ".svg" : "../img/" + selected_theme + time_12.charAt(4) +".svg"
+                Item {
+                    id: time_sec_colon_box
                     width: displaySeconds ? preview_rect.digit_width : 0
-                    height: width * 3/2
-                    color: temp_text_color
+                    height: width * 4
+                        
+                    Icon {
+                        id: time_sec_colon_light
+                        visible: isLed
+
+                        source: isLed ? "../img/" + selected_theme + "light.svg" : ""
+                        width: displaySeconds ?  preview_rect.digit_width : 0
+                        height: width * 4
+                        color: temp_text_color
+                    }
+                    
+                    BrightnessContrast {
+                        anchors.fill: time_sec_colon_light
+                        source: time_sec_colon_light
+                        brightness: 0.5
+                        contrast: 0.5
+                    }
+                    
+                    Icon {
+                        id: sec_colon
+
+                        source: time_12.charAt(5) & 1 == 1 ? isAnalog ? "" : "../img/" + selected_theme + "colon.png" : isAnalog ? "" : blinkColons ? "../img/" + selected_theme + "blank_colon.png" : "../img/" + selected_theme + "colon.png"
+                        width: displaySeconds ? preview_rect.digit_width : 0
+                        height: width * 4
+                    }
+
+                    HueSaturation {
+                        anchors.fill: sec_colon
+                        source: sec_colon
+                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                    }
                 }
 
-                Icon {
-                    id: time_ss
-
-                    source: selected_theme === "analog" ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(5) + ".svg" : "../img/" + selected_theme + time_12.charAt(5) +".svg"
+                Item {
+                    id: time_s_box
                     width: displaySeconds ? preview_rect.digit_width : 0
-                    height: width * 3/2
-                    color: temp_text_color
+                    height: width * 4
+                        
+                    Icon {
+                        id: time_s_light
+                        visible: isLed
+
+                        source: isLed ? "../img/" + selected_theme + "light.svg" : ""
+                        width: displaySeconds ? preview_rect.digit_width : 0
+                        height: width * 4
+                        color: temp_text_color
+                    }
+                    
+                    BrightnessContrast {
+                        anchors.fill: time_s_light
+                        source: time_s_light
+                        brightness: 0.5
+                        contrast: 0.5
+                    }
+                    
+                    Icon {
+                        id: time_s
+
+                        source: isAnalog ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(4) + ".png" : "../img/" + selected_theme + time_12.charAt(4) +".png"
+                        width: displaySeconds ? preview_rect.digit_width : 0
+                        height: width * 4
+                    }
+
+                    HueSaturation {
+                        anchors.fill: time_s
+                        source: time_s
+                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                    }
+                }
+
+                Item {
+                    id: time_ss_box
+                    width: displaySeconds ? preview_rect.digit_width : 0
+                    height: width * 4
+                        
+                    Icon {
+                        id: time_ss_light
+                        visible: isLed
+
+                        source: isLed ? "../img/" + selected_theme + "light.svg" : ""
+                        width: displaySeconds ? preview_rect.digit_width : 0
+                        height: width * 4
+                        color: temp_text_color
+                    }
+                    
+                    BrightnessContrast {
+                        anchors.fill: time_ss_light
+                        source: time_ss_light
+                        brightness: 0.5
+                        contrast: 0.5
+                    }
+
+                    Icon {
+                        id: time_ss
+
+                        source: isAnalog ? "" : preview_rect.is24hour ? "../img/" + selected_theme + time_24.charAt(5) + ".png" : "../img/" + selected_theme + time_12.charAt(5) +".png"
+                        width: displaySeconds ? preview_rect.digit_width : 0
+                        height: width * 4
+                    }
+
+                    HueSaturation {
+                        anchors.fill: time_ss
+                        source: time_ss
+                        hue: isDigtal ? isDayMode ? tube_hue_day : tube_hue : "0"
+                    }
                 }
             }
 
@@ -188,7 +414,7 @@ Page {
                 visible: !preview_rect.is24hour
                 text: time_12.substring(6)
                 anchors {
-                    top: selected_theme === "analog" ? analog_clock.bottom : time_row.bottom
+                    top: isAnalog ? analog_clock.bottom : time_row.bottom
                     right: parent.right
                     rightMargin: units.gu(2)
                 }

@@ -1,0 +1,8 @@
+[Desktop Entry]
+_Name=Retro Clock
+Exec=qmlscene $@ qml/Main.qml
+Icon=img/RetroClock.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Splash-Color=#000

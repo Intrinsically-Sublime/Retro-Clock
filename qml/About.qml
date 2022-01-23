@@ -9,8 +9,7 @@ Page {
 
         title: i18n.tr("Information")
         StyleHints {
-            backgroundColor: isDayMode ? "#e8ae0e" : "#0a2449"
-            foregroundColor: isDayMode ? "#0a2449" : "#e8ae0e"
+            backgroundColor: isDayMode ? back_color_day : back_color
         }
         extension: Sections {
             id: header_sections
@@ -65,7 +64,7 @@ Page {
 
                     source: Image {
                         id: icon_image
-                        source: "../NightClock.png"
+                        source: "../img/RetroClock.png"
                     }
                     radius: "medium"
                     aspect: UbuntuShape.DropShadow
@@ -76,7 +75,7 @@ Page {
                 id: name
 
                 visible: header_sections.selectedIndex === 0
-                text: i18n.tr("Night Clock") + "\nv0.7"
+                text: i18n.tr("Retro Clock")
                 anchors.horizontalCenter: parent.horizontalCenter
                 textSize: Label.Large
                 horizontalAlignment:  Text.AlignHCenter
@@ -87,7 +86,7 @@ Page {
 
                 visible: header_sections.selectedIndex === 0
                 width: parent.width
-                text: i18n.tr("use it in the daytime too")
+                text: i18n.tr("Take a trip back in time")
                 anchors.horizontalCenter: parent.horizontalCenter
                 wrapMode: Text.WordWrap
                 horizontalAlignment:  Text.AlignHCenter
@@ -100,7 +99,7 @@ Page {
 
                     ProgressionSlot {}
                 }
-                onClicked: {Qt.openUrlExternally('https://launchpad.net/night-clock')}
+                onClicked: {Qt.openUrlExternally('')}
             }
 
             ListItem {
@@ -120,6 +119,18 @@ Page {
                 ListItemLayout {
                     title.text: i18n.tr("Author")
 
+                    Label { text: "Intrinsically-Sublime" }
+
+                    ProgressionSlot {}
+                }
+                onClicked: {Qt.openUrlExternally('')}
+            }
+
+            ListItem {
+                visible: header_sections.selectedIndex === 1
+                ListItemLayout {
+                    title.text: i18n.tr("Original Author")
+
                     Label { text: "Michał Prędotka" }
 
                     ProgressionSlot {}
@@ -131,7 +142,7 @@ Page {
                 visible: header_sections.selectedIndex === 1
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: parent.width - units.gu(4)
-                text: i18n.tr("Huge thank you to all who translated this program!")
+                text: i18n.tr("Thank you to all translators.")
                 wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter
                 textSize: Label.Large
@@ -144,7 +155,7 @@ Page {
 
                     ProgressionSlot {}
                 }
-                onClicked: Qt.openUrlExternally('https://bugs.launchpad.net/night-clock')
+                onClicked: Qt.openUrlExternally('')
             }
 
             ListItem {
@@ -154,7 +165,7 @@ Page {
 
                     ProgressionSlot {}
                 }
-                onClicked: Qt.openUrlExternally('https://translations.launchpad.net/night-clock')
+                onClicked: Qt.openUrlExternally('')
             }
 
             ListItem {
@@ -164,22 +175,7 @@ Page {
 
                     ProgressionSlot {}
                 }
-                onClicked: Qt.openUrlExternally('scope://com.canonical.scopes.clickstore?q=mivoligo')
-            }
-
-            ListItem {
-                visible: header_sections.selectedIndex === 0 || header_sections.selectedIndex === 2
-                ListItemLayout {
-                    title.text: i18n.tr("Donate")
-
-                    ProgressionSlot {
-                        name: "like"
-                        color: UbuntuColors.red
-                        height: units.gu(3)
-                        width: height
-                    }
-                }
-                onClicked: Qt.openUrlExternally('https://www.paypal.me/miv')
+                onClicked: Qt.openUrlExternally('')
             }
         }
     }

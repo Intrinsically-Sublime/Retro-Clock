@@ -1,15 +1,15 @@
 {
-    "name": "nightclock.mivoligo",
-    "description": "Use it in the daytime too",
-    "architecture": "all",
-    "title": "Night Clock",
+    "name": "retro-clock.intrinsically-sublime",
+    "description": "Turn your phone into a retro styled clock.",
+    "architecture": "@CLICK_ARCH@",
+    "title": "Retro Clock",
     "hooks": {
-        "NightClock": {
-            "apparmor": "NightClock.apparmor",
-            "desktop": "NightClock.desktop"
+        "retro-clock": {
+            "apparmor": "retro-clock.apparmor",
+            "desktop":  "retro-clock.desktop"
         }
     },
-    "version": "0.7",
-    "maintainer": "Michal Predotka <mpredotka@gmail.com>",
-    "framework": "ubuntu-sdk-15.04.4"
+    "version": "1.0.0",
+    "maintainer": "Intrinsically-Sublime <fake@gmail.com>",
+    "framework" : "@CLICK_FRAMEWORK@"
 }

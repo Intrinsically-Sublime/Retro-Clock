@@ -9,8 +9,7 @@ Page {
 
         title: i18n.tr("Time format")
         StyleHints {
-            backgroundColor: isDayMode ? "#e8ae0e" : "#0a2449"
-            foregroundColor: isDayMode ? "#0a2449" : "#e8ae0e"
+            backgroundColor: isDayMode ? back_color_day : back_color
         }
     }
 
@@ -25,7 +24,7 @@ Page {
         }
         clip: true
 
-        model: ["hh:mm", "hh:mm ap", "h:mm", "h:mm ap"]
+        model: ["hh:mm ap", "h:mm ap", "hh:mm", "h:mm"]
 
         delegate:
             ListItem {

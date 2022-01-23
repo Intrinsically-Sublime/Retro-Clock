@@ -7,11 +7,27 @@ Item {
 
     property color main_color: isDayMode ? text_color_day
                                          : text_color
+    
+    Icon {
+        id: background
 
+        source: selected_theme.slice(0,6) == "analog" && !hideOscilloscope ? "../img/" + selected_theme + "back.png" : ""
+        width: parent.width
+        height: width
+    }
+    Icon {
+        id: face
+
+        source: selected_theme.slice(0,6) == "analog" ? "../img/" + selected_theme + "back.svg" : ""
+        width: parent.width
+        height: width
+        color: main_color
+    }
+    
     Icon {
         id: hour_hand
 
-        source: "../img/analog/hour-hand.svg"
+        source: selected_theme.slice(0,6) == "analog" ? "../img/" + selected_theme + "hour-hand.svg" : ""
         width: parent.width
         height: width
         color: main_color
@@ -21,7 +37,7 @@ Item {
     Icon {
         id: min_hand
 
-        source: "../img/analog/min-hand.svg"
+        source: selected_theme.slice(0,6) == "analog" ? "../img/" + selected_theme + "min-hand.svg" : ""
         width: parent.width
         height: width
         color: main_color
@@ -32,20 +48,19 @@ Item {
         id: sec_hand
 
         visible: displaySeconds
-        source: "../img/analog/sec-hand.svg"
+        source: selected_theme.slice(0,6) == "analog" ? "../img/" + selected_theme + "sec-hand.svg" : ""
         width: parent.width
         height: width
         color: main_color
         rotation: sec_analog
     }
-
+    
     Icon {
-        id: background
+        id: mask
 
-        source: "../img/analog/back.svg"
+        source: selected_theme.slice(0,6) == "analog" ? "../img/" + selected_theme + "mask.png" : ""
         width: parent.width
         height: width
-        color: main_color
     }
 }
 
