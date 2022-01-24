@@ -115,7 +115,7 @@ are global.
 * Tube Clocks
     * 10 types of Nixie tubes and Neon panel displays. (Adjustable Hue)
     * 1 type of Electroluminescent segmented cyrillic font (Alien font) display panel. (Adjustable Hue)
-    * 3 types of Vacuum Flourescent segmented displays. (Adjustable Hue)
+    * 3 types of Vacuum Fluorescent segmented displays. (Adjustable Hue)
     * 1 type of Cathode Ray Tube display. (+1 variation) (Adjustable Hue)
     * 1 type of Thyratron segmented display. (Adjustable Hue)
     * 2 types of Decade counters. (+1 variation) (Adjustable Hue)
@@ -125,7 +125,7 @@ are global.
     * 2 colors of Flip clock.
 
 * Analog Clocks
-    * 2 types of Vacuum Flourescent Analog clocks. (Color matches Text color)
+    * 2 types of Vacuum Fluorescent Analog clocks. (Color matches Text color)
     * 5 types of Oscilloscope clock faces. (Color matches Text color)
     * 5 types of clocks. (same faces as oscilloscope) (Color matches Text color)
 
@@ -165,13 +165,13 @@ are global.
 ### IEL0VI 8 Segment Electroluminescent Displays
 <img alt="iel0vi" src=".art/banners/iel0vi.png" title="IEL0VI clock with leading zero and seconds displayed" width="50%"/>
 
-### Y1938 Prototype 7 Segment Vacuum Flourescent Tubes
+### Y1938 Prototype 7 Segment Vacuum Fluorescent Tubes
 <img alt="y1938p" src=".art/banners/y1938p.png" title="Y1938 clock with leading zero and seconds displayed" width="50%"/>
 
-### DG10B 9 Segment Vacuum Flourescent Tubes
+### DG10B 9 Segment Vacuum Fluorescent Tubes
 <img alt="dg10b" src=".art/banners/itrondg10b.png" title="DG10B clock with leading zero and seconds displayed" width="50%"/>
 
-### IV6 7 Segment Vacuum Flourescent Tubes
+### IV6 7 Segment Vacuum Fluorescent Tubes
 <img alt="iv6" src=".art/banners/iv6.png" title="IV6 clock with leading zero and seconds displayed" width="50%"/>
 
 ### XM1000 Nimo Cathode Ray Tubes
@@ -210,10 +210,10 @@ are global.
 ### White Flip Clock Faces
 <img alt="white flipclock" src=".art/banners/flipwht.png" title="White Flip Clock with leading zero and seconds displayed" width="50%"/>
 
-### FIP60B30T Vacuum Flourescent Analog Clock
+### FIP60B30T Vacuum Fluorescent Analog Clock
 <img alt="fip60" src=".art/banners/fip60.png" title="FIP60B30T clock with seconds displayed" width="50%"/>
 
-### VFD48 Vacuum Flourescent Analog Clock
+### VFD48 Vacuum Fluorescent Analog Clock
 <img alt="vfd48" src=".art/banners/vfd48.png" title="VFD48 clock with seconds displayed" width="50%"/>
 
 ### Custom Oscilloscope and Floating Analog Clock Faces
@@ -236,6 +236,8 @@ are global.
 ### Building from source
 ------------------------
 Install [Clickable](https://clickable-ut.dev/en/latest/)
+
+Download or clone the Retro-Clock repo
 
 Download [images](https://github.com/Intrinsically-Sublime/rc-images) and place the "img" folder in the root of Retro-Clock
 

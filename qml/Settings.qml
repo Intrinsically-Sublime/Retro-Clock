@@ -73,7 +73,7 @@ Page {
                     iconSource: "../img/" + presetTheme[5][0] + "icon.png"
                     text: i18n.tr(presetTheme[5][2])
 
-                    onTriggered: loadPreset(5)
+                    onTriggered: loadPreset(5, false)
                 }
             ]
             numberOfSlots: 1
