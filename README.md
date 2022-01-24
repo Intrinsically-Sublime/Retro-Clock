@@ -36,36 +36,36 @@ Reference photos were found on these wonderful collectors sites and forums:
 * [TubeTime](http://tubetime.us)
 
 If you think I have used your reference photos during the creation of my 
-work and I have not included your site please open an issue and let me 
-know so I can add it. Some reference photos where found on social media 
-posts without referel to their origin.
+work, and I have not included your site, please open an issue and let me 
+know, so I can add it. Some reference photos were found on social media 
+posts without reference to their origin.
 
 ## Notes
 --------
 Possible future changes
 
 * Slot machine and shuffle transitions like used on real nixie clocks.
-* Display date in numerical format using smaller versions of the display choosen.
+* Display date in numerical format using smaller versions of the display chosen.
 * Hue/Saturation wheel or panel instead of Hue and Saturation sliders for custom colors.
 * Make analog clock and date/alarms display side by side in landscape.
 * Backgrounds and overlays to complete the look of real world clocks.
 * Use as lock screen.
 * Use on/as wallpaper.
 * Timer and stopwatch mode.
-* Option to force landscape mode while the phone is in portrait. (Does not look to be possible with a setting only in the .desktop file)
+* Option to force landscape mode while the phone is in portrait. (Does not look to be possible with a setting, only in the .desktop file)
 
 It was tested on two devices during development:
 
 * Oneplus 6T ( 64bit )
 * Oneplus One ( 32bit )
 
-The program could be optimized and cleaned up but I have very little 
-experience with declarative or object oriented programming and before this 
-program I had never used Qml, QT or Java so I have left all redundant 
+The program could be optimized and cleaned up, but I have very little 
+experience with declarative or object-oriented programming, and before this 
+program I had never used Qml, QT or Java. I have left all redundant 
 code and even added to it. 
 
 The presets are saved in a C type array and the colors are all saved in 
-individual variables with get and set functions since I did not know how 
+individual variables with get and set functions, since I did not know how 
 to do it in QML and the colors could not be used after being re-saved 
 in the C type array.
 
@@ -74,19 +74,19 @@ included. I have tried to keep it as small as possible by reducing the
 png resolution without sacrificing quality on a phone.
 
 All of the displays below are all based on real world display technology 
-from the cold war era except the colons tubes which are fictional and 
+from the cold war era, except the colon tubes which are fictional and 
 generally do not exist in the real world.
 
 Most of the L.E.D. displays are from the very early days of L.E.Ds and 
-are not the most useful but none the less interesting.
+are not the most useful, but none the less interesting.
 
-The decade counter clocks are for the tube clock lovers amung you not 
+The decade counter clocks are for the tube clock lovers among you, not 
 because they are good clocks.
 
 ## Options
 ----------
 There are 6 fully customizable presets that can have all their parameters 
-changed individually except the time/date formats and fullscreen which 
+changed individually, except the time/date formats and fullscreen which 
 are global.
 
 * Select Display type
@@ -131,7 +131,8 @@ are global.
 
 ------------------------
 
-#### All pictures show the colors of the actual real life displays.
+**All pictures show the colors of the actual real life displays.**
+
  The colors are customizable in the settings menu.
 
 ### B7971 15 Segment Nixie Tubes
@@ -212,7 +213,7 @@ are global.
 ### FIP60B30T Vacuum Flourescent Analog Clock
 <img alt="fip60" src=".art/banners/fip60.png" title="FIP60B30T clock with seconds displayed" width="50%"/>
 
-### VFD48 Vacuum Flourescent Analog Clocks
+### VFD48 Vacuum Flourescent Analog Clock
 <img alt="vfd48" src=".art/banners/vfd48.png" title="VFD48 clock with seconds displayed" width="50%"/>
 
 ### Custom Oscilloscope and Floating Analog Clock Faces
