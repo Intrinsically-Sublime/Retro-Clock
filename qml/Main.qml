@@ -29,11 +29,13 @@ Window {
     property real alarm_del_h: 0
                                 //[folder/display/,         hue,    title,      seconds,date,   alarm,  blink, s.saver, oscil]
     property var presetTheme:  [["digital/b7971/",          0,      "Preset 1", true,   true,   true,   true,  false,   false],
-                                ["digital/nixie_zm1010/",   0.7,    "Preset 2", true,   true,   true,   false, false,   false],
+                                ["digital/nixie_zm1010/",   0,      "Preset 2", true,   true,   true,   false, false,   false],
                                 ["digital/iel_0_vi/",       0,      "Preset 3", true,   true,   true,   false, false,   false],
                                 ["leds/hp_5802_7002/",      0,      "Preset 4", false,  true,   true,   false, false,   false],
                                 ["other/flip_blk/",         0,      "Preset 5", true,   true,   true,   false, false,   false],
-                                ["analog/vfd_fip60/",       0,      "Preset 6", true,   true,   true,   false, false,   false]]
+                                ["digital/nixie_zm1010/",   0.7,    "Preset 6", true,   true,   true,   false, false,   false],
+                                ["digital/zm_1350/",         0,      "Preset 7", true,   true,   true,   false, false,   false],
+                                ["analog/vfd_fip60/",       0,      "Preset 8", true,   true,   true,   false, false,   false]]
 
     property int currentPreset: 0
     property string selected_theme: presetTheme[currentPreset][0]
@@ -56,13 +58,17 @@ Window {
     property color pre_b_color_3: "#000000"
     property color pre_b_color_4: "#171717"
     property color pre_b_color_5: "#000000"
+    property color pre_b_color_6: "#000000"
+    property color pre_b_color_7: "#000000"
     // Hack to save colors as they can not be saved in the array
     property color pre_t_color_0: "#ffaa19"
-    property color pre_t_color_1: "#8250ff"
+    property color pre_t_color_1: "#ffaa19"
     property color pre_t_color_2: "#82ffff"
     property color pre_t_color_3: "#ff0000"
     property color pre_t_color_4: "#ffffff"
-    property color pre_t_color_5: "#50ffff"
+    property color pre_t_color_5: "#8250ff"
+    property color pre_t_color_6: "#ffa5cd"
+    property color pre_t_color_7: "#50ffff"
     // Hack to save the text colors to match the preset array
     function savePresetTextColor(newColor)
     {
@@ -74,6 +80,8 @@ Window {
         case 3: pre_t_color_3 = newColor ; break
         case 4: pre_t_color_4 = newColor ; break
         case 5: pre_t_color_5 = newColor ; break
+        case 6: pre_t_color_6 = newColor ; break
+        case 7: pre_t_color_7 = newColor ; break
         }
     }
     // Hack to save the background colors to match the preset array
@@ -87,6 +95,8 @@ Window {
         case 3: pre_b_color_3 = newColor ; break
         case 4: pre_b_color_4 = newColor ; break
         case 5: pre_b_color_5 = newColor ; break
+        case 6: pre_b_color_6 = newColor ; break
+        case 7: pre_b_color_7 = newColor ; break
         }
     }
     // Hack to get the background colors that match the preset array
@@ -100,6 +110,8 @@ Window {
         case 3: return pre_b_color_3 ; break
         case 4: return pre_b_color_4 ; break
         case 5: return pre_b_color_5 ; break
+        case 6: return pre_b_color_6 ; break
+        case 7: return pre_b_color_7 ; break
         }
     }
     // Hack to get the text colors that match the preset array
@@ -113,6 +125,8 @@ Window {
         case 3: return pre_t_color_3 ; break
         case 4: return pre_t_color_4 ; break
         case 5: return pre_t_color_5 ; break
+        case 6: return pre_t_color_6 ; break
+        case 7: return pre_t_color_7 ; break
         }
     }
     
@@ -225,12 +239,16 @@ Window {
             property alias b_color_3: root_window.pre_b_color_3
             property alias b_color_4: root_window.pre_b_color_4
             property alias b_color_5: root_window.pre_b_color_5
+            property alias b_color_6: root_window.pre_b_color_6
+            property alias b_color_7: root_window.pre_b_color_7
             property alias t_color_0: root_window.pre_t_color_0
             property alias t_color_1: root_window.pre_t_color_1
             property alias t_color_2: root_window.pre_t_color_2
             property alias t_color_3: root_window.pre_t_color_3
             property alias t_color_4: root_window.pre_t_color_4
             property alias t_color_5: root_window.pre_t_color_5
+            property alias t_color_6: root_window.pre_t_color_6
+            property alias t_color_7: root_window.pre_t_color_7
         }
 
         Connections {

@@ -74,6 +74,18 @@ Page {
                     text: i18n.tr(presetTheme[5][2])
 
                     onTriggered: loadPreset(5, false)
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[6][0] + "icon.png"
+                    text: i18n.tr(presetTheme[6][2])
+
+                    onTriggered: loadPreset(6, false)
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[7][0] + "icon.png"
+                    text: i18n.tr(presetTheme[7][2])
+
+                    onTriggered: loadPreset(7, false)
                 }
             ]
             numberOfSlots: 1

@@ -146,6 +146,24 @@ Page {
                     }
                 },
                 Action {
+                    iconSource: "../img/" + presetTheme[6][0] + "icon.png"
+                    text: i18n.tr(presetTheme[6][2])
+
+                    onTriggered: {
+                        main_header.exposed = false
+                        loadPreset(6, true)
+                    }
+                },
+                Action {
+                    iconSource: "../img/" + presetTheme[7][0] + "icon.png"
+                    text: i18n.tr(presetTheme[7][2])
+
+                    onTriggered: {
+                        main_header.exposed = false
+                        loadPreset(7, true)
+                    }
+                },
+                Action {
                     iconName: "settings"
                     text: i18n.tr("Settings")
 
