@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: retro-clock.intrinsically-sublime\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-29 04:56+0000\n"
+"POT-Creation-Date: 2022-01-29 06:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/About.qml:10 ../qml/Display.qml:177
+#: ../qml/About.qml:10 ../qml/Display.qml:105
 msgid "Information"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Support"
 msgstr ""
 
-#: ../qml/About.qml:77 ../qml/Main.qml:203 retro-clock.desktop.in.h:1
+#: ../qml/About.qml:77 ../qml/Main.qml:206 retro-clock.desktop.in.h:1
 msgid "Retro Clock"
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Retro Clock ~ "
 msgstr ""
 
-#: ../qml/Display.qml:168
+#: ../qml/Display.qml:96
 msgid "Settings"
 msgstr ""
 

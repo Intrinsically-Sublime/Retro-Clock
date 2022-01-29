@@ -27,15 +27,18 @@ Window {
     property string this_date: Qt.formatDateTime(new Date(), date_format)
     property string color_edited // find out if text_color or back_color is edited in custom color setting
     property real alarm_del_h: 0
-                                //[folder/display/,         hue,    title,      seconds,date,   alarm,  blink, s.saver, oscil]
-    property var presetTheme:  [["digital/b7971/",          0,      "Preset 1", true,   true,   true,   true,  false,   false],
-                                ["digital/nixie_zm1010/",   0,      "Preset 2", true,   true,   true,   false, false,   false],
-                                ["digital/iel_0_vi/",       0,      "Preset 3", true,   true,   true,   false, false,   false],
-                                ["leds/hp_5802_7002/",      0,      "Preset 4", false,  true,   true,   false, false,   false],
-                                ["other/flip_blk/",         0,      "Preset 5", true,   true,   true,   false, false,   false],
-                                ["digital/nixie_zm1010/",   0.7,    "Preset 6", true,   true,   true,   false, false,   false],
-                                ["digital/zm_1350/",         0,      "Preset 7", true,   true,   true,   false, false,   false],
-                                ["analog/vfd_fip60/",       0,      "Preset 8", true,   true,   true,   false, false,   false]]
+
+    property var presetTheme:  [
+        //[folder/display/,     hue,    title,      seconds,date,   alarm,  blink, s.saver, oscil]
+        ["digital/B7971/",      0,      "Preset 1", true,   true,   true,   true,  false,   false],
+        ["digital/ZM1010/",     0,      "Preset 2", true,   true,   true,   false, false,   false],
+        ["digital/IEL0VI/",     0,      "Preset 3", true,   true,   true,   false, false,   false],
+        ["leds/HP5802-7002/",   0,      "Preset 4", false,  true,   true,   false, false,   false],
+        ["other/FLIP_BLACK/",   0,      "Preset 5", true,   true,   true,   false, false,   false],
+        ["digital/ZM1010/",     0.7,    "Preset 6", true,   true,   true,   false, false,   false],
+        ["digital/ZM1350/",     0,      "Preset 7", true,   true,   true,   false, false,   false],
+        ["analog/FIP60/",       0,      "Preset 8", true,   true,   true,   false, false,   false]
+    ]
 
     property int currentPreset: 0
     property string selected_theme: presetTheme[currentPreset][0]
@@ -62,12 +65,12 @@ Window {
     property color pre_b_color_7: "#000000"
     // Hack to save colors as they can not be saved in the array
     property color pre_t_color_0: "#ffaa19"
-    property color pre_t_color_1: "#ffaa19"
-    property color pre_t_color_2: "#82ffff"
+    property color pre_t_color_1: "#e18223"
+    property color pre_t_color_2: "#a5e6ff"
     property color pre_t_color_3: "#ff0000"
     property color pre_t_color_4: "#ffffff"
-    property color pre_t_color_5: "#8250ff"
-    property color pre_t_color_6: "#ffa5cd"
+    property color pre_t_color_5: "#af64ff"
+    property color pre_t_color_6: "#ffbeaf"
     property color pre_t_color_7: "#50ffff"
     // Hack to save the text colors to match the preset array
     function savePresetTextColor(newColor)

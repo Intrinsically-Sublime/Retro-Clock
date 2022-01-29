@@ -92,6 +92,24 @@ Page {
         trailingActionBar {
             actions: [
                 Action {
+                    iconName: "settings"
+                    text: i18n.tr("Settings")
+
+                    onTriggered: {
+                        main_header.exposed = false
+                        page_stack.push(Qt.resolvedUrl("Settings.qml"))
+                    }
+                },
+                Action {
+                    iconName: "info"
+                    text: i18n.tr("Information")
+
+                    onTriggered: {
+                        main_header.exposed = false
+                        page_stack.push(Qt.resolvedUrl("About.qml"))
+                    }
+                },
+                Action {
                     iconSource: "../img/" + presetTheme[0][0] + "icon.png"
                     text: i18n.tr(presetTheme[0][2])
 
@@ -162,27 +180,9 @@ Page {
                         main_header.exposed = false
                         loadPreset(7, true)
                     }
-                },
-                Action {
-                    iconName: "settings"
-                    text: i18n.tr("Settings")
-
-                    onTriggered: {
-                        main_header.exposed = false
-                        page_stack.push(Qt.resolvedUrl("Settings.qml"))
-                    }
-                },
-                Action {
-                    iconName: "info"
-                    text: i18n.tr("Information")
-
-                    onTriggered: {
-                        main_header.exposed = false
-                        page_stack.push(Qt.resolvedUrl("About.qml"))
-                    }
                 }
             ]
-            numberOfSlots: 1
+            numberOfSlots: 3
         }
     }
 

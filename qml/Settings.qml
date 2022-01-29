@@ -831,8 +831,8 @@ Page {
                                         id: digital_tube_rep
 
                                         model: [
-                                            "digital/b7971/", "digital/nixie_4k/", "digital/nixie_gn1/", "digital/nixie_zm1010/", "digital/nixie_cd66a/",
-                                            "digital/in23_1/", "digital/mg17g/", "digital/neo_8000/", "digital/neo_5000/", "digital/zm_1350/"
+                                            "digital/B7971/", "digital/NIXIE4K/", "digital/GN1/", "digital/ZM1010/", "digital/CD66A/",
+                                            "digital/IN23/", "digital/MG17G/", "digital/NEO8000/", "digital/NEO5000/", "digital/ZM1350/"
                                         ]
 
                                         Item {
@@ -894,9 +894,9 @@ Page {
                                         id: digital_other_rep
 
                                         model: [
-                                            "digital/iel_0_vi/", "digital/y1938_p/", "digital/itron_dg10b/", "digital/vfd_iv6/",
-                                            "digital/nimo_xm1000_a/", "digital/nimo_xm1000_b/", 
-                                            "digital/its1a/", "digital/e1t/", "digital/pixie_1/", "digital/pixie_2/"
+                                            "digital/IEL0VI/", "digital/Y1938_p/", "digital/DG10B/", "digital/IV6/",
+                                            "digital/XM1000_1/", "digital/XM1000_2/", 
+                                            "digital/ITS1A/", "digital/E1T/", "digital/PIXIE_1/", "digital/PIXIE_2/"
                                         ]
 
                                         Item {
@@ -1001,8 +1001,8 @@ Page {
                                         id: digital_led_rep
 
                                         model: [
-                                            "leds/hp_5802_7002/", "leds/hdsp_960x/", "leds/hp_5802_7000_1970/", "leds/hp_5802_7000_1987/",
-                                            "leds/tia8447/", "other/flip_blk/", "other/flip_wht/"
+                                            "leds/HP5802-7002/", "leds/HDSP960x/", "leds/HP5802-7000_1970/", "leds/HP5802-7000_1987/",
+                                            "leds/TIA8447/", "other/FLIP_BLACK/", "other/FLIP_WHITE/"
                                         ]
 
                                         Item {
@@ -1068,9 +1068,9 @@ Page {
                                         id: analog_theme_rep
 
                                         model: [
-                                            "analog/vfd_fip60/", "analog/vfd48/",
-                                            "analog/osc_e/", "analog/osc_d/", "analog/osc_c/",
-                                            "analog/osc_b/", "analog/osc_a/"
+                                            "analog/FIP60/", "analog/VFD48/",
+                                            "analog/OSC_e/", "analog/OSC_d/", "analog/OSC_c/",
+                                            "analog/OSC_b/", "analog/OSC_a/"
                                         ]
 
                                         Item {
