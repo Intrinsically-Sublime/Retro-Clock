@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: retro-clock.intrinsically-sublime\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-24 07:17+0000\n"
+"POT-Creation-Date: 2022-01-29 04:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/About.qml:10 ../qml/Display.qml:159
+#: ../qml/About.qml:10 ../qml/Display.qml:177
 msgid "Information"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Support"
 msgstr ""
 
-#: ../qml/About.qml:77 ../qml/Main.qml:189 retro-clock.desktop.in.h:1
+#: ../qml/About.qml:77 ../qml/Main.qml:203 retro-clock.desktop.in.h:1
 msgid "Retro Clock"
 msgstr ""
 
@@ -93,7 +93,7 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: ../qml/DateFormatSetting.qml:10 ../qml/Settings.qml:498
+#: ../qml/DateFormatSetting.qml:10 ../qml/Settings.qml:510
 msgid "Date format"
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Retro Clock ~ "
 msgstr ""
 
-#: ../qml/Display.qml:150
+#: ../qml/Display.qml:168
 msgid "Settings"
 msgstr ""
 
@@ -121,70 +121,70 @@ msgstr ""
 msgid "Time & Date Format"
 msgstr ""
 
-#: ../qml/Settings.qml:521 ../qml/TimeFormatSetting.qml:10
+#: ../qml/Settings.qml:533 ../qml/TimeFormatSetting.qml:10
 msgid "Time format"
 msgstr ""
 
-#: ../qml/Settings.qml:545
+#: ../qml/Settings.qml:557
 msgid "Theme Name"
 msgstr ""
 
-#: ../qml/Settings.qml:595
+#: ../qml/Settings.qml:607
 msgid "Full screen"
 msgstr ""
 
-#: ../qml/Settings.qml:620
+#: ../qml/Settings.qml:632
 msgid "Screensaver mode"
 msgstr ""
 
-#: ../qml/Settings.qml:649
+#: ../qml/Settings.qml:661
 msgid "RGB color selectors"
 msgstr ""
 
-#: ../qml/Settings.qml:675
+#: ../qml/Settings.qml:687
 msgid "Display active alarms"
 msgstr ""
 
-#: ../qml/Settings.qml:703
+#: ../qml/Settings.qml:715
 msgid "Display date"
 msgstr ""
 
-#: ../qml/Settings.qml:728
+#: ../qml/Settings.qml:740
 msgid "Display seconds"
 msgstr ""
 
-#: ../qml/Settings.qml:755
+#: ../qml/Settings.qml:767
 msgid "WARNING: This setting may reduce battery life"
 msgstr ""
 
-#: ../qml/Settings.qml:767
+#: ../qml/Settings.qml:779
 msgid "Blinky colons"
 msgstr ""
 
-#: ../qml/Settings.qml:804
+#: ../qml/Settings.qml:816
 msgid "Tube Clocks"
 msgstr ""
 
-#: ../qml/Settings.qml:927
+#: ../qml/Settings.qml:939
 msgid "Tube Hue"
 msgstr ""
 
-#: ../qml/Settings.qml:973
+#: ../qml/Settings.qml:985
 msgid "L.E.D. & Flip Clocks"
 msgstr ""
 
-#: ../qml/Settings.qml:1040
+#: ../qml/Settings.qml:1052
 msgid "Analog Clocks"
 msgstr ""
 
-#: ../qml/Settings.qml:1101
+#: ../qml/Settings.qml:1113
 msgid "Hide Oscilloscope Background"
 msgstr ""
 
-#: ../qml/Settings.qml:1136 ../qml/Settings.qml:1343
+#: ../qml/Settings.qml:1148 ../qml/Settings.qml:1355
 msgid "Foreground colour"
 msgstr ""
 
-#: ../qml/Settings.qml:1240 ../qml/Settings.qml:1422
+#: ../qml/Settings.qml:1252 ../qml/Settings.qml:1434
 msgid "Background colour"
 msgstr ""
