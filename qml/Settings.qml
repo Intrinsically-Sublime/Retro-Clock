@@ -796,6 +796,24 @@ Page {
                     }
 
                     ListItem {
+                        height: units.gu(6)
+                        divider.visible: true
+                        visible: header_sections.selectedIndex === 0
+
+                        ListItemLayout {
+                            id: display_name
+                            
+                            Label {
+                                id: display_name_label
+                                text: i18n.tr("Current Display: " + displayTypeName)
+                                SlotsLayout.position: SlotsLayout.Leading
+                                SlotsLayout.overrideVerticalPositioning : true
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+                        }
+                    }
+
+                    ListItem {
                         id: digital_tube_setting_item
 
                         height: units.gu(9)

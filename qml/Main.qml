@@ -51,6 +51,8 @@ Window {
     property bool moveNumbers: presetTheme[currentPreset][7]
     property bool hideOscilloscope: presetTheme[currentPreset][8]
     
+    property string displayTypeName: getDisplayType()
+    
     property color back_color: getPresetBackColor(currentPreset)
     property color text_color: getPresetTextColor(currentPreset)
 
@@ -154,6 +156,12 @@ Window {
             isDigtal = true
             updateTime()
         }
+    }
+    
+    function getDisplayType()
+    {
+        var displayType = selected_theme.split("/");
+        return displayType[1];
     }
 
     function loadPreset(selection, mainPage)

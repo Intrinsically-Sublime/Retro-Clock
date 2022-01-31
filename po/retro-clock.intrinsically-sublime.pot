@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: retro-clock.intrinsically-sublime\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-29 06:45+0000\n"
+"POT-Creation-Date: 2022-01-29 07:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Support"
 msgstr ""
 
-#: ../qml/About.qml:77 ../qml/Main.qml:206 retro-clock.desktop.in.h:1
+#: ../qml/About.qml:77 ../qml/Main.qml:214 retro-clock.desktop.in.h:1
 msgid "Retro Clock"
 msgstr ""
 
@@ -161,30 +161,34 @@ msgstr ""
 msgid "Blinky colons"
 msgstr ""
 
-#: ../qml/Settings.qml:816
+#: ../qml/Settings.qml:808
+msgid "Current Display: "
+msgstr ""
+
+#: ../qml/Settings.qml:834
 msgid "Tube Clocks"
 msgstr ""
 
-#: ../qml/Settings.qml:939
+#: ../qml/Settings.qml:957
 msgid "Tube Hue"
 msgstr ""
 
-#: ../qml/Settings.qml:985
+#: ../qml/Settings.qml:1003
 msgid "L.E.D. & Flip Clocks"
 msgstr ""
 
-#: ../qml/Settings.qml:1052
+#: ../qml/Settings.qml:1070
 msgid "Analog Clocks"
 msgstr ""
 
-#: ../qml/Settings.qml:1113
+#: ../qml/Settings.qml:1131
 msgid "Hide Oscilloscope Background"
 msgstr ""
 
-#: ../qml/Settings.qml:1148 ../qml/Settings.qml:1355
+#: ../qml/Settings.qml:1166 ../qml/Settings.qml:1373
 msgid "Foreground colour"
 msgstr ""
 
-#: ../qml/Settings.qml:1252 ../qml/Settings.qml:1434
+#: ../qml/Settings.qml:1270 ../qml/Settings.qml:1452
 msgid "Background colour"
 msgstr ""
