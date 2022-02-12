@@ -3,6 +3,12 @@
 
 **Turn your Ubuntu Touch device into a retro clock with a large collection of cold war era display technologies.**
 
+## Release
+----------
+**The images and an installable click file will be released once there is 
+an official way of getting a click reviewed that does not require 
+installing a program to then join a social group to ask for review.**
+
 ## License
 ----------
 
@@ -12,7 +18,7 @@ The code in this repository is under the [Simplified BSD license](https://openso
 <img src=".art/simplifiedBSD.png" title="Simplified BSD-2-Clause License" width="100px"/>
 
 ### Images
-All of the custom artwork is in a seperate repository under a Creative Commons [Attribution Non-Commercial Share-Alike license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+All of the custom artwork will be in a seperate repository under a Creative Commons [Attribution Non-Commercial Share-Alike license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 <img src=".art/ccbyncsa.svg" title="Creative Commons Attribution Non-Commercial Share-Alike License" width="100px"/>
 
@@ -261,14 +267,30 @@ are global.
 
 <img alt="Horizontal Nixie tube Clock with leading zero and seconds, Green Hue" src=".art/screenshots/zm1010_155357.png" title="Horizontal orientation Nixie tube clock with leading zero and seconds displayed, Green Hue" width="550px"/>
 
+#### Settings
+<img alt="Horizontal Settings page" src=".art/screenshots/settings_001.png" title="Horizontal orientation Settings page" width="550px"/>
+
+<img alt="Horizontal Settings page" src=".art/screenshots/settings_002.png" title="Horizontal orientation Settings page" width="550px"/>
+
+<img alt="Horizontal Settings page" src=".art/screenshots/settings_003.png" title="Horizontal orientation Settings page" width="550px"/>
+
+<img alt="Horizontal Settings page" src=".art/screenshots/settings_004.png" title="Horizontal orientation Settings page" width="550px"/>
+
+<img alt="Horizontal Settings page" src=".art/screenshots/settings_005.png" title="Horizontal orientation Settings page" width="550px"/>
+
+<img alt="Horizontal Settings page" src=".art/screenshots/settings_006.png" title="Horizontal orientation Settings page" width="550px"/>
+
+<img alt="Horizontal Settings page" src=".art/screenshots/settings_007.png" title="Horizontal orientation Settings page" width="550px"/>
+
 ### Building from source
 ------------------------
 Install [Clickable](https://clickable-ut.dev/en/latest/)
 
 Download or clone the Retro-Clock repo
 
-Download the [img](https://github.com/Intrinsically-Sublime/rc-images) 
-folder and place it in the root of Retro-Clock along side the qml and po folders.
+See the #Release section for information on the release of the images.  
+<s>Download the [img](https://github.com/Intrinsically-Sublime/rc-images) 
+folder and place it in the root of Retro-Clock along side the qml and po folders.</s>
 
 Open a terminal at the root of Retro-Clock and run ``` clickable ``` or ``` clickable desktop ``` or ``` clickable build ```
 
