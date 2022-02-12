@@ -18,7 +18,7 @@ The code in this repository is under the [Simplified BSD license](https://openso
 <img src=".art/simplifiedBSD.png" title="Simplified BSD-2-Clause License" width="100px"/>
 
 ### Images
-All of the custom artwork will be in a seperate repository under a Creative Commons [Attribution Non-Commercial Share-Alike license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+All of the custom artwork will be in a separate repository under a Creative Commons [Attribution Non-Commercial Share-Alike license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 <img src=".art/ccbyncsa.svg" title="Creative Commons Attribution Non-Commercial Share-Alike License" width="100px"/>
 
@@ -245,9 +245,7 @@ are global.
 ---------------
 
 #### Vertical Orientation
-<img alt="Vertical Nixie Clock without seconds" src=".art/screenshots/nixie4k_0406xx(1).png" title="Vertical orientation nixie tube clock without seconds displayed" width="21%"/>
-<img alt="Vertical VFD48 Analog with seconds" src=".art/screenshots/vfd48_161449.png" title="Vertical orientation VFD48 analog clock with seconds displayed" width="21%"/>
-<img alt="Vertical ZM1350 Neon panel with seconds" src=".art/screenshots/zm1350_161123.png" title="Vertical orientation ZM1350 Neon panel clock without seconds displayed" width="21%"/>
+<img alt="Vertical Nixie Clock without seconds" src=".art/screenshots/nixie4k_0406xx(1).png" title="Vertical orientation nixie tube clock without seconds displayed" height="550px"/><img alt="Vertical VFD48 Analog with seconds" src=".art/screenshots/vfd48_161449.png" title="Vertical orientation VFD48 analog clock with seconds displayed" height="550px"/><img alt="Vertical ZM1350 Neon panel with seconds" src=".art/screenshots/zm1350_161123.png" title="Vertical orientation ZM1350 Neon panel clock without seconds displayed" height="550px"/>
 
 #### Horizontal Orientation without seconds
 <img alt="Horizontal Nixie Clock without seconds" src=".art/screenshots/nixie4k_0406xx.png" title="Horizontal orientation nixie tube clock without seconds displayed" width="550px"/>
